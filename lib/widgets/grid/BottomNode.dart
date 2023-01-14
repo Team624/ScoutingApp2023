@@ -14,9 +14,9 @@ class _BottomNodeState extends State<BottomNode> {
   Widget activated_cube = SvgPicture.asset('assets/cube.svg',
       semanticsLabel: 'Activated cube Node', width: 90, height: 90);
   Widget activated_cone = SvgPicture.asset('assets/cone.svg',
-      semanticsLabel: 'Activated cone Node', width: 45, height: 105);
+      semanticsLabel: 'Activated cone Node', width: 90, height: 113);
   Widget nothing = SvgPicture.asset('assets/nothing.svg',
-      semanticsLabel: 'Nothing', width: 45, height: 45);
+      semanticsLabel: 'Nothing', width: 90, height: 90);
 
   @override
   Widget build(BuildContext context) {

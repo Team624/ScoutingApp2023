@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:scouting_app_2023/widgets/auton/chargerSwitch.dart';
+import 'package:scouting_app_2023/widgets/checkbox.dart';
 import 'package:scouting_app_2023/widgets/grid/Cone.dart';
 import 'package:scouting_app_2023/widgets/grid/Cube.dart';
+import 'package:scouting_app_2023/widgets/Counter.dart';
 
 import '../widgets/grid/BottomNode.dart';
 
@@ -16,7 +19,7 @@ class _AutonPageState extends State<AutonPage> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -55,19 +58,34 @@ class _AutonPageState extends State<AutonPage> {
           ]),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Row(
-              children: const [BottomNode(), BottomNode(), BottomNode()],
+              children: [
+                BottomNode(),
+                SizedBox(child: Container(child: BottomNode(), width: 90)),
+                BottomNode()
+              ],
               mainAxisAlignment: MainAxisAlignment.center,
             ),
             Row(
-              children: const [BottomNode(), BottomNode(), BottomNode()],
+              children: [
+                BottomNode(),
+                SizedBox(child: Container(child: BottomNode(), width: 90)),
+                BottomNode()
+              ],
               mainAxisAlignment: MainAxisAlignment.center,
             ),
             Row(
-              children: const [BottomNode(), BottomNode(), BottomNode()],
+              children: [
+                BottomNode(),
+                SizedBox(child: Container(child: BottomNode(), width: 90)),
+                BottomNode()
+              ],
               mainAxisAlignment: MainAxisAlignment.center,
             ),
           ]),
-          Row()
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [ChargerSwitch(), CheckBox(text: "Lost connection")],
+          )
         ],
       ),
     );

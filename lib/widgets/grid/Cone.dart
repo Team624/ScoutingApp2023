@@ -14,9 +14,9 @@ class _ConeState extends State<Cone> {
   bool activated = false;
 
   Widget activated_cone = SvgPicture.asset('assets/cone.svg',
-      semanticsLabel: 'Activated Cone Node', width: 45, height: 105);
+      semanticsLabel: 'Activated Cone Node', width: 90, height: 113);
   Widget deactivated_cone = SvgPicture.asset('assets/coneEmpty.svg',
-      semanticsLabel: 'Deactivated Cone Node', width: 45, height: 105);
+      semanticsLabel: 'Deactivated Cone Node', width: 90, height: 113);
 
   @override
   Widget build(BuildContext context) {
