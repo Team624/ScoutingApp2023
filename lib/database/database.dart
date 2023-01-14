@@ -47,7 +47,7 @@ Future<List<Performance>> performance() async {
     return Performance(
       match: maps[i]["match"],
       team: maps[i]["team"],
-      nickname: maps[i]["nickname"],
+      // nickname: maps[i]["nickname"],
     );
   });
 }

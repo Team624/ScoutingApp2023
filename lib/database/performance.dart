@@ -3,127 +3,134 @@ import 'dart:ffi';
 class Performance implements Comparable<Performance> {
   final int match;
   final int team;
-  final String nickname;
-
-  // TODO: make these variables not final
-  // TODO: check if datatypes are correct;
 
   // Auton
-  final Char auton;
-  final bool preload;
-  final bool move;
-  final Char exit_path;
-  final bool auto_cone_L1;
-  final bool auto_hybrid_l2;
-  final bool auto_cone_L3;
-  final bool auto_cone_L4;
-  final bool auto_hybrid_l5;
-  final bool auto_cone_L6;
-  final bool auto_cone_L7;
-  final bool auto_hybrid_L8;
-  final bool auto_cone_L9;
-  final bool auto_cone_M1;
-  final bool auto_cube_M2;
-  final bool auto_cone_M3;
-  final bool auto_cone_M4;
-  final bool auto_cube_M5;
-  final bool auto_cone_M6;
-  final bool auto_cone_M7;
-  final bool auto_cube_M8;
-  final bool auto_cone_M9;
-  final bool auto_cone_H1;
-  final bool auto_cube_H2;
-  final bool auto_cone_H3;
-  final bool auto_cone_H4;
-  final bool auto_cube_H5;
-  final bool auto_cone_H6;
-  final bool auto_cone_H7;
-  final bool auto_cube_H8;
-  final bool auto_cone_H9;
-  final bool auto_charge;
+  static String position = 'A';
+  static String preload = 'N';
+  static bool move = false;
+  String exit_path = 'N';
+  int auto_cone_L1 = 1;
+  int auto_hybrid_L2 = 1;
+  int auto_cone_L3 = 1;
+  int auto_cone_L4 = 1;
+  int auto_hybrid_l5 = 1;
+  int auto_cone_L6 = 1;
+  int auto_cone_L7 = 1;
+  int auto_hybrid_L8 = 1;
+  int auto_cone_L9 = 1;
+  int auto_cone_M1 = 1;
+  int auto_cube_M2 = 1;
+  int auto_cone_M3 = 1;
+  int auto_cone_M4 = 1;
+  int auto_cube_M5 = 1;
+  int auto_cone_M6 = 1;
+  int auto_cone_M7 = 1;
+  int auto_cube_M8 = 1;
+  int auto_cone_M9 = 1;
+  int auto_cone_H1 = 1;
+  int auto_cube_H2 = 1;
+  int auto_cone_H3 = 1;
+  int auto_cone_H4 = 1;
+  int auto_cube_H5 = 1;
+  int auto_cone_H6 = 1;
+  int auto_cone_H7 = 1;
+  int auto_cube_H8 = 1;
+  int auto_cone_H9 = 1;
+  String auto_charge = "Not Attempted";
 
   // Teleop
-  final int teleop_cube_L_made;
-  final int teleop_cube_M_made;
-  final int teleop_cube_H_made;
-  final int teleop_cone_L_made;
-  final int teleop_cone_M_made;
-  final int teleop_cone_H_made;
-  final int teleop_cube_L_missed;
-  final int teleop_cube_M_missed;
-  final int teleop_cube_H_missed;
-  final int teleop_cone_L_missed;
-  final int teleop_cone_M_missed;
-  final int teleop_cone_H_missed;
-  final int fouls_comitted;
+  int teleop_cube_L_made = 0;
+  int teleop_cube_M_made = 0;
+  int teleop_cube_H_made = 0;
+  int teleop_cone_L_made = 0;
+  int teleop_cone_M_made = 0;
+  int teleop_cone_H_made = 0;
+  int teleop_cube_L_missed = 0;
+  int teleop_cube_M_missed = 0;
+  int teleop_cube_H_missed = 0;
+  int teleop_cone_L_missed = 0;
+  int teleop_cone_M_missed = 0;
+  int teleop_cone_H_missed = 0;
+  int fouls_comitted = 0;
 
   // Endgame
-  final int charging_station_time;
-  final bool charging_station_endgame;
-  final bool disconnect;
+  double charging_station_time = 0;
+  String charging_station_endgame = "Not Attempted";
+  bool disconnect = false;
 
-  // TODO: add variables
-  const Performance({
+  Performance({
     required this.match,
     required this.team,
-    required this.nickname,
-    required this.auton,
-    required this.preload,
-    required this.move,
-    required this.exit_path,
-    required this.auto_cone_L1,
-    required this.auto_hybrid_l2,
-    required this.auto_cone_L3,
-    required this.auto_cone_L4,
-    required this.auto_hybrid_l5,
-    required this.auto_cone_L6,
-    required this.auto_cone_L7,
-    required this.auto_hybrid_L8,
-    required this.auto_cone_L9,
-    required this.auto_cone_M1,
-    required this.auto_cube_M2,
-    required this.auto_cone_M3,
-    required this.auto_cone_M4,
-    required this.auto_cube_M5,
-    required this.auto_cone_M6,
-    required this.auto_cone_M7,
-    required this.auto_cube_M8,
-    required this.auto_cone_M9,
-    required this.auto_cone_H1,
-    required this.auto_cube_H2,
-    required this.auto_cone_H3,
-    required this.auto_cone_H4,
-    required this.auto_cube_H5,
-    required this.auto_cone_H6,
-    required this.auto_cone_H7,
-    required this.auto_cube_H8,
-    required this.auto_cone_H9,
-    required this.auto_charge,
-    required this.teleop_cube_L_made,
-    required this.teleop_cube_M_made,
-    required this.teleop_cube_H_made,
-    required this.teleop_cone_L_made,
-    required this.teleop_cone_M_made,
-    required this.teleop_cone_H_made,
-    required this.teleop_cube_L_missed,
-    required this.teleop_cube_M_missed,
-    required this.teleop_cube_H_missed,
-    required this.teleop_cone_L_missed,
-    required this.teleop_cone_M_missed,
-    required this.teleop_cone_H_missed,
-    required this.fouls_comitted,
-    required this.charging_station_time,
-    required this.charging_station_endgame,
-    required this.disconnect,
   });
 
   Map<String, dynamic> toMap() {
-    return {"match": match, "team": team, "nickname": nickname};
+    // FYI this is written with GH copilot so it might be buggy/have errors
+
+    // return {"match": match, "team": team};
+
+    // retern a map in this format {"variable_name":variable_value, "variable_name":variable_value, ...}
+    return {
+      "match": match,
+      "team": team,
+      "position": position,
+      "preload": preload,
+      "move": move,
+      "exit_path": exit_path,
+      "auto_cone_L1": auto_cone_L1,
+      "auto_hybrid_L2": auto_hybrid_L2,
+      "auto_cone_L3": auto_cone_L3,
+      "auto_cone_L4": auto_cone_L4,
+      "auto_hybrid_l5": auto_hybrid_l5,
+      "auto_cone_L6": auto_cone_L6,
+      "auto_cone_L7": auto_cone_L7,
+      "auto_hybrid_L8": auto_hybrid_L8,
+      "auto_cone_L9": auto_cone_L9,
+      "auto_cone_M1": auto_cone_M1,
+      "auto_cube_M2": auto_cube_M2,
+      "auto_cone_M3": auto_cone_M3,
+      "auto_cone_M4": auto_cone_M4,
+      "auto_cube_M5": auto_cube_M5,
+      "auto_cone_M6": auto_cone_M6,
+      "auto_cone_M7": auto_cone_M7,
+      "auto_cube_M8": auto_cube_M8,
+      "auto_cone_M9": auto_cone_M9,
+      "auto_cone_H1": auto_cone_H1,
+      "auto_cube_H2": auto_cube_H2,
+      "auto_cone_H3": auto_cone_H3,
+      "auto_cone_H4": auto_cone_H4,
+      "auto_cube_H5": auto_cube_H5,
+      "auto_cone_H6": auto_cone_H6,
+      "auto_cone_H7": auto_cone_H7,
+      "auto_cube_H8": auto_cube_H8,
+      "auto_cone_H9": auto_cone_H9,
+      "auto_charge": auto_charge,
+      "teleop_cube_L_made": teleop_cube_L_made,
+      "teleop_cube_M_made": teleop_cube_M_made,
+      "teleop_cube_H_made": teleop_cube_H_made,
+      "teleop_cone_L_made": teleop_cone_L_made,
+      "teleop_cone_M_made": teleop_cone_M_made,
+      "teleop_cone_H_made": teleop_cone_H_made,
+      "teleop_cube_L_missed": teleop_cube_L_missed,
+      "teleop_cube_M_missed": teleop_cube_M_missed,
+      "teleop_cube_H_missed": teleop_cube_H_missed,
+      "teleop_cone_L_missed": teleop_cone_L_missed,
+      "teleop_cone_M_missed": teleop_cone_M_missed,
+      "teleop_cone_H_missed": teleop_cone_H_missed,
+      "fouls_comitted": fouls_comitted,
+      "charging_station_time": charging_station_time,
+      "charging_station_endgame": charging_station_endgame,
+      "disconnect": disconnect,
+    };
   }
 
   @override
   String toString() {
-    return 'Performance{match:$match, team:$team, nickname:$nickname}';
+    // This is also written with copilot
+
+    // TODO: Make this more efficient and compressed
+
+    // return all the variables in the format Performance{variable_name:variable_value, variable_name:variable_value, ...}
+    return 'Performance{match:$match, team:$team, position:$position, preload:$preload, move:$move, exit_path:$exit_path, auto_cone_L1:$auto_cone_L1, auto_hybrid_L2:$auto_hybrid_L2, auto_cone_L3:$auto_cone_L3, auto_cone_L4:$auto_cone_L4, auto_hybrid_l5:$auto_hybrid_l5, auto_cone_L6:$auto_cone_L6, auto_cone_L7:$auto_cone_L7, auto_hybrid_L8:$auto_hybrid_L8, auto_cone_L9:$auto_cone_L9, auto_cone_M1:$auto_cone_M1, auto_cube_M2:$auto_cube_M2, auto_cone_M3:$auto_cone_M3, auto_cone_M4:$auto_cone_M4, auto_cube_M5:$auto_cube_M5, auto_cone_M6:$auto_cone_M6, auto_cone_M7:$auto_cone_M7, auto_cube_M8:$auto_cube_M8, auto_cone_M9:$auto_cone_M9, auto_cone_H1:$auto_cone_H1, auto_cube_H2:$auto_cube_H2, auto_cone_H3:$auto_cone_H3, auto_cone_H4:$auto_cone_H4, auto_cube_H5:$auto_cube_H5, auto_cone_H6:$auto_cone_H6, auto_cone_H7:$auto_cone_H7, auto_cube_H8:$auto_cube_H8, auto_cone_H9:$auto_cone_H9, auto_charge:$auto_charge, teleop_cube_L_made:$teleop_cube_L_made, teleop_cube_M_made:$teleop_cube_M_made, teleop_cube_H_made:$teleop_cube_H_made, teleop_cone_L_made:$teleop_cone_L_made, teleop_cone_M_made:$teleop_cone_M_made, teleop_cone_H_made:$teleop_cone_H_made, teleop_cube_L_missed:$teleop_cube_L_missed, teleop_cube_M_missed:$teleop_cube_M_missed, teleop_cube_H_missed:$teleop_cube_H_missed, teleop_cone_L_missed:$teleop_cone_L_missed, teleop_cone_M_missed:$teleop_cone_M_missed, teleop_cone_H_missed:$teleop_cone_H_missed, fouls_comitted:$fouls_comitted, charging_station_time:$charging_station_time, charging_station_endgame:$charging_station_endgame, disconnect:$disconnect}';
   }
 
   @override

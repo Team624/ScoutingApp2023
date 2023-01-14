@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:scouting_app_2023/widgets/Counter.dart';
 import 'package:scouting_app_2023/widgets/checkbox.dart';
+import 'package:counter_button/counter_button.dart';
 
 class TeleOpPage extends StatefulWidget {
   const TeleOpPage({Key? key}) : super(key: key);
@@ -25,18 +26,18 @@ class _TeleOpPageState extends State<TeleOpPage> {
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Counter(),
-            Counter(),
-            Counter(),
+            CounterButton(count: 1, onChange: (int num) {}, loading: false),
+            CounterButton(count: 1, onChange: (int num) {}, loading: false),
+            CounterButton(count: 1, onChange: (int num) {}, loading: false),
             Checkbox(text: "sussy amogus checkmark")
           ],
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Counter(),
-            Counter(),
-            Counter(),
+            CounterButton(count: 1, onChange: (int num) {}, loading: false),
+            CounterButton(count: 1, onChange: (int num) {}, loading: false),
+            CounterButton(count: 1, onChange: (int num) {}, loading: false),
             Checkbox(text: "amogus checkmark 2")
           ],
         ),
