@@ -1,5 +1,5 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:scouting_app_2023/screens/auton.dart';
 import 'package:scouting_app_2023/screens/teleop.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'database/database.dart';
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final pages = <Widget>[
     const Center(child: Text('Game select')),
-    const Center(child: Text('Auton')),
+    AutonPage(),
     TeleOpPage(),
     const Center(child: Text('Endgame')),
     const Center(child: Text('Review')),
@@ -95,9 +95,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ]),
 
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: pages[_bottomNavIndex],
       // render a body based on the navbar index
     );
