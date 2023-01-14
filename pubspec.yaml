@@ -40,6 +40,8 @@ dependencies:
   counter_button: ^1.0.1
   sqflite:
   path:
+  animated_bottom_navigation_bar: ^1.1.0+1
+  stepper_counter_swipe: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -91,5 +93,9 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family:  CustomIcons
+      fonts:
+        - asset: fonts/CustomIcons.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -26,7 +26,11 @@ class _TeleOpPageState extends State<TeleOpPage> {
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CounterButton(count: 1, onChange: (int num) {}, loading: false),
+            SizedBox(
+                child: CounterButton(
+                    count: 1, onChange: (int num) {}, loading: false),
+                width: 175,
+                height: 60),
             CounterButton(count: 1, onChange: (int num) {}, loading: false),
             CounterButton(count: 1, onChange: (int num) {}, loading: false),
             Checkbox(text: "sussy amogus checkmark")
