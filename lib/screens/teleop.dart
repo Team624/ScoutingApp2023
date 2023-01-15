@@ -2,21 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:scouting_app_2023/database/performance.dart';
+import 'package:scouting_app_2023/database/performance.dart';
+import 'package:scouting_app_2023/screens/viewQR.dart';
 import 'package:scouting_app_2023/widgets/Counter.dart';
 import 'package:scouting_app_2023/widgets/checkbox.dart';
-// import 'package:counter_button/counter_button.dart';
 import 'package:stepper_counter_swipe/stepper_counter_swipe.dart';
+import 'package:scouting_app_2023/database/database.dart';
 
-class TeleOpPage extends StatefulWidget {
-  const TeleOpPage({Key? key}) : super(key: key);
-
+class Teleop extends StatefulWidget {
+  Performance data;
+  Teleop({required this.data}) : super();
   @override
-  State<TeleOpPage> createState() => _TeleOpPageState();
+  _TeleopState createState() => _TeleopState(data: data);
 }
 
-class _TeleOpPageState extends State<TeleOpPage> {
+class _TeleopState extends State<Teleop> {
+  Performance data;
+  _TeleopState({required this.data});
+  //connected to fouls committed
   int counter = 0;
-
+  //only 1 counter in the code
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -47,6 +53,8 @@ class _TeleOpPageState extends State<TeleOpPage> {
                 onChanged: (int value) {
                   setState(() {
                     counter = value;
+                    //update values for the match
+                    data.fouls_committed = counter;
                   });
                 },
                 firstIncrementDuration: Duration(
@@ -60,7 +68,18 @@ class _TeleOpPageState extends State<TeleOpPage> {
               ),
               height: 90,
               width: 200,
-            )
+            ),
+            TextButton(
+              onPressed: () async {
+                await insertPerformance(data);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DisplayQRcode(data: data)),
+                );
+              },
+              child: Text('Submit', style: TextStyle(fontSize: 30.0)),
+            ),
           ],
         ),
       ],
