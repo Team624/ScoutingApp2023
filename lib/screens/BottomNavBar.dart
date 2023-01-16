@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scouting_app_2023/screens/auton.dart';
 import 'package:scouting_app_2023/screens/teleop.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/custom_icons.dart';
@@ -28,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     var screens = [
       Center(child: Text('Game select')),
-      Center(child: Text('Auton')),
+      AutonPage(data: data),
       Teleop(data: data),
       Center(child: Text('Endgame')),
       Center(child: Text('Review')),

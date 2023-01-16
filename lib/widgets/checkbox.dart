@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CheckBox extends StatefulWidget {
   final String text;
-  const CheckBox({super.key, required this.text});
+  final onChecked;
+  const CheckBox({super.key, required this.text, required this.onChecked});
 
   @override
   State<CheckBox> createState() => _CheckBoxState();
@@ -17,6 +16,7 @@ class _CheckBoxState extends State<CheckBox> {
     return GestureDetector(
       onTap: () {
         setState(() {
+          widget.onChecked(isChecked);
           isChecked = !isChecked;
         });
       },

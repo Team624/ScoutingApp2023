@@ -7,7 +7,7 @@ import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/screens/viewQR.dart';
 import 'package:scouting_app_2023/widgets/Counter.dart';
 import 'package:scouting_app_2023/widgets/checkbox.dart';
-import 'package:stepper_counter_swipe/stepper_counter_swipe.dart';
+// import 'package:stepper_counter_swipe/stepper_counter_swipe.dart';
 import 'package:scouting_app_2023/database/database.dart';
 
 class Teleop extends StatefulWidget {
@@ -40,35 +40,35 @@ class _TeleopState extends State<Teleop> {
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: Colors.blue[300],
-              ),
-              child: StepperSwipe(
-                stepperValue: counter,
-                initialValue: 0,
-                speedTransitionLimitCount: 3, //Trigger count for fast counting
-                onChanged: (int value) {
-                  setState(() {
-                    counter = value;
-                    //update values for the match
-                    data.fouls_committed = counter;
-                  });
-                },
-                firstIncrementDuration: Duration(
-                    milliseconds: 250), //Unit time before fast counting
-                secondIncrementDuration: Duration(
-                    milliseconds: 100), //Unit time during fast counting
-                direction: Axis.horizontal,
-                dragButtonColor: Colors.blueAccent,
-                maxValue: 9,
-                minValue: 0,
-              ),
-              height: 90,
-              width: 200,
-            ),
+            // Container(
+            //   padding: const EdgeInsets.all(8.0),
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(8.0),
+            //     color: Colors.blue[300],
+            //   ),
+            //   child: StepperSwipe(
+            //     stepperValue: counter,
+            //     initialValue: 0,
+            //     speedTransitionLimitCount: 3, //Trigger count for fast counting
+            //     onChanged: (int value) {
+            //       setState(() {
+            //         counter = value;
+            //         //update values for the match
+            //         data.fouls_committed = counter;
+            //       });
+            //     },
+            //     firstIncrementDuration: Duration(
+            //         milliseconds: 250), //Unit time before fast counting
+            //     secondIncrementDuration: Duration(
+            //         milliseconds: 100), //Unit time during fast counting
+            //     direction: Axis.horizontal,
+            //     dragButtonColor: Colors.blueAccent,
+            //     maxValue: 9,
+            //     minValue: 0,
+            //   ),
+            //   height: 90,
+            //   width: 200,
+            // ),
             TextButton(
               onPressed: () async {
                 await insertPerformance(data);
