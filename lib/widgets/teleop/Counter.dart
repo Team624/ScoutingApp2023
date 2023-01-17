@@ -28,20 +28,20 @@ class _CounterState extends State<Counter> {
         children: [
           Text(widget.text, style: const TextStyle(fontSize: 17.5)),
           GestureDetector(
-            child: const Icon(Icons.add, size: 50),
+            child: const Icon(Icons.remove, size: 50),
             onTap: () {
               setState(() {
-                counter++;
+                counter--;
                 widget.onChanged(counter);
               });
             },
           ),
           Text(counter.toString(), style: const TextStyle(fontSize: 25)),
           GestureDetector(
-            child: const Icon(Icons.remove, size: 50),
+            child: const Icon(Icons.add, size: 50),
             onTap: () {
               setState(() {
-                counter--;
+                counter++;
                 widget.onChanged(counter);
               });
             },

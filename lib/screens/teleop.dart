@@ -166,13 +166,14 @@ class _TeleopState extends State<Teleop> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CheckBox(
-                text: "Lost connection",
-                onChecked: (checked) {
-                  print(
-                      "The checkbox is currently ${checked ? "checked" : "unchecked"}");
-                },
-              ),
+              // CheckBox(
+              //   text: "Lost connection",
+              //   onChecked: (checked) {
+              //     print(
+              //         "The checkbox is currently ${checked ? "checked" : "unchecked"}");
+              //   },
+              // ),
+              Counter(onChanged: (numFouls) {}, text: "Cycles"),
               Counter(onChanged: (numFouls) {}, text: "Fouls Committed"),
               TextButton(
                 onPressed: () async {
