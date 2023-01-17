@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Performance implements Comparable<Performance> {
   //Pre Match
   String initials = "N/A";
@@ -11,63 +9,63 @@ class Performance implements Comparable<Performance> {
   String preload = "None";
   bool move = true;
   String exit_path = "None";
-  String auto_cone_L1 = "N/A";
-  String auto_hybrid_L2 = "N/A";
-  String auto_cone_L3 = "N/A";
-  String auto_cone_L4 = "N/A";
-  String auto_hybrid_l5 = "N/A";
-  String auto_cone_L6 = "N/A";
-  String auto_cone_L7 = "N/A";
-  String auto_hybrid_L8 = "N/A";
-  String auto_cone_L9 = "N/A";
-  String auto_cone_M1 = "N/A";
-  String auto_cube_M2 = "N/A";
-  String auto_cone_M3 = "N/A";
-  String auto_cone_M4 = "N/A";
-  String auto_cube_M5 = "N/A";
-  String auto_cone_M6 = "N/A";
-  String auto_cone_M7 = "N/A";
-  String auto_cube_M8 = "N/A";
-  String auto_cone_M9 = "N/A";
-  String auto_cone_H1 = "N/A";
-  String auto_cube_H2 = "N/A";
-  String auto_cone_H3 = "N/A";
-  String auto_cone_H4 = "N/A";
-  String auto_cube_H5 = "N/A";
-  String auto_cone_H6 = "N/A";
-  String auto_cone_H7 = "N/A";
-  String auto_cube_H8 = "N/A";
-  String auto_cone_H9 = "N/A";
-  String auto_charge = "N/A";
+  int auto_cone_L1 = 0;
+  int auto_hybrid_L2 = 0;
+  int auto_cone_L3 = 0;
+  int auto_cone_L4 = 0;
+  int auto_hybrid_L5 = 0;
+  int auto_cone_L6 = 0;
+  int auto_cone_L7 = 0;
+  int auto_hybrid_L8 = 0;
+  int auto_cone_L9 = 0;
+  int auto_cone_M1 = 0;
+  int auto_cube_M2 = 0;
+  int auto_cone_M3 = 0;
+  int auto_cone_M4 = 0;
+  int auto_cube_M5 = 0;
+  int auto_cone_M6 = 0;
+  int auto_cone_M7 = 0;
+  int auto_cube_M8 = 0;
+  int auto_cone_M9 = 0;
+  int auto_cone_H1 = 0;
+  int auto_cube_H2 = 0;
+  int auto_cone_H3 = 0;
+  int auto_cone_H4 = 0;
+  int auto_cube_H5 = 0;
+  int auto_cone_H6 = 0;
+  int auto_cone_H7 = 0;
+  int auto_cube_H8 = 0;
+  int auto_cone_H9 = 0;
+  String auto_charge = "None";
 
   // Teleop
-  bool teleop_cone_L1 = false;
-  String teleop_hybrid_L2 = "None";
-  bool teleop_cone_L3 = false;
-  bool teleop_cone_L4 = false;
-  String teleop_hybrid_l5 = "None";
-  bool teleop_cone_L6 = false;
-  bool teleop_cone_L7 = false;
-  String teleop_hybrid_L8 = "None";
-  bool teleop_cone_L9 = false;
-  bool teleop_cone_M1 = false;
-  bool teleop_cube_M2 = false;
-  bool teleop_cone_M3 = false;
-  bool teleop_cone_M4 = false;
-  bool teleop_cube_M5 = false;
-  bool teleop_cone_M6 = false;
-  bool teleop_cone_M7 = false;
-  bool teleop_cube_M8 = false;
-  bool teleop_cone_M9 = false;
-  bool teleop_cone_H1 = false;
-  bool teleop_cube_H2 = false;
-  bool teleop_cone_H3 = false;
-  bool teleop_cone_H4 = false;
-  bool teleop_cube_H5 = false;
-  bool teleop_cone_H6 = false;
-  bool teleop_cone_H7 = false;
-  bool teleop_cube_H8 = false;
-  bool teleop_cone_H9 = false;
+  int teleop_cone_L1 = 0;
+  int teleop_hybrid_L2 = 0;
+  int teleop_cone_L3 = 0;
+  int teleop_cone_L4 = 0;
+  int teleop_hybrid_L5 = 0;
+  int teleop_cone_L6 = 0;
+  int teleop_cone_L7 = 0;
+  int teleop_hybrid_L8 = 0;
+  int teleop_cone_L9 = 0;
+  int teleop_cone_M1 = 0;
+  int teleop_cube_M2 = 0;
+  int teleop_cone_M3 = 0;
+  int teleop_cone_M4 = 0;
+  int teleop_cube_M5 = 0;
+  int teleop_cone_M6 = 0;
+  int teleop_cone_M7 = 0;
+  int teleop_cube_M8 = 0;
+  int teleop_cone_M9 = 0;
+  int teleop_cone_H1 = 0;
+  int teleop_cube_H2 = 0;
+  int teleop_cone_H3 = 0;
+  int teleop_cone_H4 = 0;
+  int teleop_cube_H5 = 0;
+  int teleop_cone_H6 = 0;
+  int teleop_cone_H7 = 0;
+  int teleop_cube_H8 = 0;
+  int teleop_cone_H9 = 0;
   int cycles = 0;
   int fouls_committed = 0;
 
@@ -95,7 +93,7 @@ class Performance implements Comparable<Performance> {
       required this.auto_hybrid_L2,
       required this.auto_cone_L3,
       required this.auto_cone_L4,
-      required this.auto_hybrid_l5,
+      required this.auto_hybrid_L5,
       required this.auto_cone_L6,
       required this.auto_cone_L7,
       required this.auto_hybrid_L8,
@@ -123,7 +121,7 @@ class Performance implements Comparable<Performance> {
       required this.teleop_hybrid_L2,
       required this.teleop_cone_L3,
       required this.teleop_cone_L4,
-      required this.teleop_hybrid_l5,
+      required this.teleop_hybrid_L5,
       required this.teleop_cone_L6,
       required this.teleop_cone_L7,
       required this.teleop_hybrid_L8,
@@ -166,7 +164,7 @@ class Performance implements Comparable<Performance> {
       "auto_hybrid_L2": auto_hybrid_L2,
       "auto_cone_L3": auto_cone_L3,
       "auto_cone_L4": auto_cone_L4,
-      "auto_hybrid_l5": auto_hybrid_l5,
+      "auto_hybrid_L5": auto_hybrid_L5,
       "auto_cone_L6": auto_cone_L6,
       "auto_cone_L7": auto_cone_L7,
       "auto_hybrid_L8": auto_hybrid_L8,
@@ -190,33 +188,33 @@ class Performance implements Comparable<Performance> {
       "auto_cube_H8": auto_cube_H8,
       "auto_cone_H9": auto_cone_H9,
       "auto_charge": auto_charge,
-      "teleop_cone_L1": toInteger(teleop_cone_L1),
+      "teleop_cone_L1": teleop_cone_L1,
       "teleop_hybrid_L2": teleop_hybrid_L2,
-      "teleop_cone_L3": toInteger(teleop_cone_L3),
-      "teleop_cone_L4": toInteger(teleop_cone_L4),
-      "teleop_hybrid_l5": teleop_hybrid_l5,
-      "teleop_cone_L6": toInteger(teleop_cone_L6),
-      "teleop_cone_L7": toInteger(teleop_cone_L7),
+      "teleop_cone_L3": teleop_cone_L3,
+      "teleop_cone_L4": teleop_cone_L4,
+      "teleop_hybrid_L5": teleop_hybrid_L5,
+      "teleop_cone_L6": teleop_cone_L6,
+      "teleop_cone_L7": teleop_cone_L7,
       "teleop_hybrid_L8": teleop_hybrid_L8,
-      "teleop_cone_L9": toInteger(teleop_cone_L9),
-      "teleop_cone_M1": toInteger(teleop_cone_M1),
-      "teleop_cube_M2": toInteger(teleop_cube_M2),
-      "teleop_cone_M3": toInteger(teleop_cone_M3),
-      "teleop_cone_M4": toInteger(teleop_cone_M4),
-      "teleop_cube_M5": toInteger(teleop_cube_M5),
-      "teleop_cone_M6": toInteger(teleop_cone_M6),
-      "teleop_cone_M7": toInteger(teleop_cone_M7),
-      "teleop_cube_M8": toInteger(teleop_cube_M8),
-      "teleop_cone_M9": toInteger(teleop_cone_M9),
-      "teleop_cone_H1": toInteger(teleop_cone_H1),
-      "teleop_cube_H2": toInteger(teleop_cube_H2),
-      "teleop_cone_H3": toInteger(teleop_cone_H3),
-      "teleop_cone_H4": toInteger(teleop_cone_H4),
-      "teleop_cube_H5": toInteger(teleop_cube_H5),
-      "teleop_cone_H6": toInteger(teleop_cone_H6),
-      "teleop_cone_H7": toInteger(teleop_cone_H7),
-      "teleop_cube_H8": toInteger(teleop_cube_H8),
-      "teleop_cone_H9": toInteger(teleop_cone_H9),
+      "teleop_cone_L9": teleop_cone_L9,
+      "teleop_cone_M1": teleop_cone_M1,
+      "teleop_cube_M2": teleop_cube_M2,
+      "teleop_cone_M3": teleop_cone_M3,
+      "teleop_cone_M4": teleop_cone_M4,
+      "teleop_cube_M5": teleop_cube_M5,
+      "teleop_cone_M6": teleop_cone_M6,
+      "teleop_cone_M7": teleop_cone_M7,
+      "teleop_cube_M8": teleop_cube_M8,
+      "teleop_cone_M9": teleop_cone_M9,
+      "teleop_cone_H1": teleop_cone_H1,
+      "teleop_cube_H2": teleop_cube_H2,
+      "teleop_cone_H3": teleop_cone_H3,
+      "teleop_cone_H4": teleop_cone_H4,
+      "teleop_cube_H5": teleop_cube_H5,
+      "teleop_cone_H6": teleop_cone_H6,
+      "teleop_cone_H7": teleop_cone_H7,
+      "teleop_cube_H8": teleop_cube_H8,
+      "teleop_cone_H9": teleop_cone_H9,
       "cycles": cycles,
       "fouls_committed": fouls_committed,
       "charging_station_time": charging_station_time,
@@ -228,11 +226,94 @@ class Performance implements Comparable<Performance> {
 
   @override
   String toString() {
-    return fouls_committed.toString();
-    //change this. it is just for testing purposes
+    List<int> auto_list = [
+      auto_cone_L1,
+      auto_cone_L3,
+      auto_cone_L4,
+      auto_cone_L6,
+      auto_cone_L7,
+      auto_cone_L9,
+      auto_cone_M1,
+      auto_cube_M2,
+      auto_cone_M3,
+      auto_cone_M4,
+      auto_cube_M5,
+      auto_cone_M6,
+      auto_cone_M7,
+      auto_cube_M8,
+      auto_cone_M9,
+      auto_cone_H1,
+      auto_cube_H2,
+      auto_cone_H3,
+      auto_cone_H4,
+      auto_cube_H5,
+      auto_cone_H6,
+      auto_cone_H7,
+      auto_cube_H8,
+      auto_cone_H9
+    ];
+    List<int> teleop_list = [
+      auto_hybrid_L2,
+      auto_hybrid_L5,
+      auto_hybrid_L8,
+      teleop_cone_L1,
+      teleop_hybrid_L2,
+      teleop_cone_L3,
+      teleop_cone_L4,
+      teleop_hybrid_L5,
+      teleop_cone_L6,
+      teleop_cone_L7,
+      teleop_hybrid_L8,
+      teleop_cone_L9,
+      teleop_cone_M1,
+      teleop_cube_M2,
+      teleop_cone_M3,
+      teleop_cone_M4,
+      teleop_cube_M5,
+      teleop_cone_M6,
+      teleop_cone_M7,
+      teleop_cube_M8,
+      teleop_cone_M9,
+      teleop_cone_H1,
+      teleop_cube_H2,
+      teleop_cone_H3,
+      teleop_cone_H4,
+      teleop_cube_H5,
+      teleop_cone_H6,
+      teleop_cone_H7,
+      teleop_cube_H8,
+      teleop_cone_H9
+    ];
+    List output = [
+      initials,
+      match,
+      team,
+      position,
+      shortenString(preload, ["None", "Park", "Docked", "Engaged"]),
+      toInteger(move),
+      shortenString(exit_path, ["None", "Cable", "Flat", "Both"]),
+      shortenString(auto_charge, ["None", "Cube", "Cone", "Both"]),
+      toDecimal(auto_list),
+      teleop_list
+          .toString()
+          .replaceAll(" ", "")
+          .replaceAll("[", "")
+          .replaceAll("]", ""),
+      cycles,
+      fouls_committed,
+      charging_station_time * 10,
+      shortenString(
+          charging_station_endgame, ["None", "Park", "Docked", "Engaged"]),
+      toInteger(triple_balance),
+      toInteger(disconnect)
+    ];
+    String output_str = "";
+    for (dynamic item in output) {
+      output_str += "${item.toString()},";
+    }
+    return output_str.substring(0, output_str.length - 1);
   }
 
-  //store booleans as integers
   int toInteger(bool boolean) {
     if (boolean) {
       return 1;
@@ -241,7 +322,6 @@ class Performance implements Comparable<Performance> {
     }
   }
 
-  //display database in order(sorted by math number)
   @override
   int compareTo(Performance other) {
     if (other.match > match) {
@@ -252,13 +332,15 @@ class Performance implements Comparable<Performance> {
     return 0;
   }
 
-  //shorten the qr code contents
-  //Will be handled with the desktop app
-  String toBinary(List<int> list) {
-    String decimal = "";
-    for (int string in list) {
-      decimal += string.toString();
+  String toDecimal(List<int> list) {
+    String binary = "";
+    for (int number in list) {
+      binary += (number + 1).toString();
     }
-    return int.parse(decimal).toRadixString(2);
+    return int.parse(binary, radix: 2).toString();
+  }
+
+  int shortenString(String string, List options) {
+    return options.indexOf(string);
   }
 }

@@ -1,12 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/screens/viewQR.dart';
-import 'package:scouting_app_2023/widgets/Counter.dart';
-import 'package:scouting_app_2023/widgets/checkbox.dart';
 import 'package:stepper_counter_swipe/stepper_counter_swipe.dart';
 import 'package:scouting_app_2023/database/database.dart';
 

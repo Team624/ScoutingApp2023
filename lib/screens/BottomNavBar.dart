@@ -40,7 +40,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color.fromARGB(255, 65, 192, 69),
+          backgroundColor: Color.fromARGB(255, 0, 244, 0),
           iconSize: 25,
           selectedIconTheme: IconThemeData(size: 35),
           selectedFontSize: 15,
