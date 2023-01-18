@@ -23,7 +23,10 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
         child: AppBar(
           centerTitle: true,
           title: Text(
-            "QR Code",
+            "QR Code for " +
+                data.team.toString() +
+                " in Match " +
+                data.match.toString(),
             style: TextStyle(
               color: Colors.black,
               fontSize: 35,
@@ -33,20 +36,10 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
         ),
       ),
       body: Center(
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Spacer(),
-          Text(
-            'Game: ' + data.match.toString(),
-            style: TextStyle(height: 5, fontSize: 20),
-          ),
-          Text(
-            'Team: ' + data.team.toString(),
-            style: TextStyle(height: 5, fontSize: 20),
-          ),
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           Spacer(),
           PrettyQr(
-              size: MediaQuery.of(context).size.width * 0.4,
+              size: MediaQuery.of(context).size.height * 0.6,
               data: data.toString(),
               errorCorrectLevel: QrErrorCorrectLevel.M,
               roundEdges: true),
@@ -54,8 +47,6 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
           TextButton(
             child: Text("DONE"),
             onPressed: () {
-              print(data.toString());
-              print("SPACE");
               print(data.toMap());
               Navigator.push(
                 context,

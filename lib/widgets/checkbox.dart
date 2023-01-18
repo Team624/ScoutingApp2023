@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 
-class Checkbox extends StatefulWidget {
+class CheckBox extends StatefulWidget {
   final String text;
-  const Checkbox({super.key, required this.text});
+  final onChecked;
+  const CheckBox({super.key, required this.text, required this.onChecked});
 
   @override
-  State<Checkbox> createState() => _CheckboxState();
+  State<CheckBox> createState() => _CheckBoxState();
 }
 
-class _CheckboxState extends State<Checkbox> {
+class _CheckBoxState extends State<CheckBox> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              isChecked = !isChecked;
-            });
-          },
-          child: Container(
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          widget.onChecked(isChecked);
+          isChecked = !isChecked;
+        });
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
               height: 40,
               width: 40,
               color: Colors.grey[300],
@@ -32,10 +34,10 @@ class _CheckboxState extends State<Checkbox> {
                       Icons.check,
                       size: 37,
                     )),
-        ),
-        SizedBox(width: 15),
-        Text(widget.text, style: TextStyle(fontSize: 20)),
-      ],
+          SizedBox(width: 15),
+          Text(widget.text, style: TextStyle(fontSize: 20)),
+        ],
+      ),
     );
   }
 }

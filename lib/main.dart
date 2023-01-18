@@ -16,9 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "Scouting22",
-        home: BottomNavBar(
-          currentIndex: 0,
-          data: Performance(),
+        home: SafeArea(
+          child: BottomNavBar(
+            currentIndex: 0,
+            data: Performance(),
+          ),
         ));
   }
 }

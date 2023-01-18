@@ -1,23 +1,24 @@
+import 'package:scouting_app_2023/utils/baseConverter.dart';
+
 class Performance implements Comparable<Performance> {
   //Pre Match
   String initials = "N/A";
-  int match = 0;
+  int match = 1;
   int team = 0;
 
   // Auton
   String position = "None";
   String preload = "None";
   bool move = true;
-  String exit_path = "None";
-  int auto_cone_L1 = 0;
+  int auto_hybrid_L1 = 0;
   int auto_hybrid_L2 = 0;
-  int auto_cone_L3 = 0;
-  int auto_cone_L4 = 0;
+  int auto_hybrid_L3 = 0;
+  int auto_hybrid_L4 = 0;
   int auto_hybrid_L5 = 0;
-  int auto_cone_L6 = 0;
-  int auto_cone_L7 = 0;
+  int auto_hybrid_L6 = 0;
+  int auto_hybrid_L7 = 0;
   int auto_hybrid_L8 = 0;
-  int auto_cone_L9 = 0;
+  int auto_hybrid_L9 = 0;
   int auto_cone_M1 = 0;
   int auto_cube_M2 = 0;
   int auto_cone_M3 = 0;
@@ -36,18 +37,18 @@ class Performance implements Comparable<Performance> {
   int auto_cone_H7 = 0;
   int auto_cube_H8 = 0;
   int auto_cone_H9 = 0;
-  String auto_charge = "None";
+  int auto_charge = 0;
 
   // Teleop
-  int teleop_cone_L1 = 0;
+  int teleop_hybrid_L1 = 0;
   int teleop_hybrid_L2 = 0;
-  int teleop_cone_L3 = 0;
-  int teleop_cone_L4 = 0;
+  int teleop_hybrid_L3 = 0;
+  int teleop_hybrid_L4 = 0;
   int teleop_hybrid_L5 = 0;
-  int teleop_cone_L6 = 0;
-  int teleop_cone_L7 = 0;
+  int teleop_hybrid_L6 = 0;
+  int teleop_hybrid_L7 = 0;
   int teleop_hybrid_L8 = 0;
-  int teleop_cone_L9 = 0;
+  int teleop_hybrid_L9 = 0;
   int teleop_cone_M1 = 0;
   int teleop_cube_M2 = 0;
   int teleop_cone_M3 = 0;
@@ -88,16 +89,15 @@ class Performance implements Comparable<Performance> {
       required this.position,
       required this.preload,
       required this.move,
-      required this.exit_path,
-      required this.auto_cone_L1,
+      required this.auto_hybrid_L1,
       required this.auto_hybrid_L2,
-      required this.auto_cone_L3,
-      required this.auto_cone_L4,
+      required this.auto_hybrid_L3,
+      required this.auto_hybrid_L4,
       required this.auto_hybrid_L5,
-      required this.auto_cone_L6,
-      required this.auto_cone_L7,
+      required this.auto_hybrid_L6,
+      required this.auto_hybrid_L7,
       required this.auto_hybrid_L8,
-      required this.auto_cone_L9,
+      required this.auto_hybrid_L9,
       required this.auto_cone_M1,
       required this.auto_cube_M2,
       required this.auto_cone_M3,
@@ -117,15 +117,15 @@ class Performance implements Comparable<Performance> {
       required this.auto_cube_H8,
       required this.auto_cone_H9,
       required this.auto_charge,
-      required this.teleop_cone_L1,
+      required this.teleop_hybrid_L1,
       required this.teleop_hybrid_L2,
-      required this.teleop_cone_L3,
-      required this.teleop_cone_L4,
+      required this.teleop_hybrid_L3,
+      required this.teleop_hybrid_L4,
       required this.teleop_hybrid_L5,
-      required this.teleop_cone_L6,
-      required this.teleop_cone_L7,
+      required this.teleop_hybrid_L6,
+      required this.teleop_hybrid_L7,
       required this.teleop_hybrid_L8,
-      required this.teleop_cone_L9,
+      required this.teleop_hybrid_L9,
       required this.teleop_cone_M1,
       required this.teleop_cube_M2,
       required this.teleop_cone_M3,
@@ -159,16 +159,15 @@ class Performance implements Comparable<Performance> {
       "position": position,
       "preload": preload,
       "move": toInteger(move),
-      "exit_path": exit_path,
-      "auto_cone_L1": auto_cone_L1,
+      "auto_hybrid_L1": auto_hybrid_L1,
       "auto_hybrid_L2": auto_hybrid_L2,
-      "auto_cone_L3": auto_cone_L3,
-      "auto_cone_L4": auto_cone_L4,
+      "auto_hybrid_L3": auto_hybrid_L3,
+      "auto_hybrid_L4": auto_hybrid_L4,
       "auto_hybrid_L5": auto_hybrid_L5,
-      "auto_cone_L6": auto_cone_L6,
-      "auto_cone_L7": auto_cone_L7,
+      "auto_hybrid_L6": auto_hybrid_L6,
+      "auto_hybrid_L7": auto_hybrid_L7,
       "auto_hybrid_L8": auto_hybrid_L8,
-      "auto_cone_L9": auto_cone_L9,
+      "auto_hybrid_L9": auto_hybrid_L9,
       "auto_cone_M1": auto_cone_M1,
       "auto_cube_M2": auto_cube_M2,
       "auto_cone_M3": auto_cone_M3,
@@ -188,15 +187,15 @@ class Performance implements Comparable<Performance> {
       "auto_cube_H8": auto_cube_H8,
       "auto_cone_H9": auto_cone_H9,
       "auto_charge": auto_charge,
-      "teleop_cone_L1": teleop_cone_L1,
+      "teleop_hybrid_L1": teleop_hybrid_L1,
       "teleop_hybrid_L2": teleop_hybrid_L2,
-      "teleop_cone_L3": teleop_cone_L3,
-      "teleop_cone_L4": teleop_cone_L4,
+      "teleop_hybrid_L3": teleop_hybrid_L3,
+      "teleop_hybrid_L4": teleop_hybrid_L4,
       "teleop_hybrid_L5": teleop_hybrid_L5,
-      "teleop_cone_L6": teleop_cone_L6,
-      "teleop_cone_L7": teleop_cone_L7,
+      "teleop_hybrid_L6": teleop_hybrid_L6,
+      "teleop_hybrid_L7": teleop_hybrid_L7,
       "teleop_hybrid_L8": teleop_hybrid_L8,
-      "teleop_cone_L9": teleop_cone_L9,
+      "teleop_hybrid_L9": teleop_hybrid_L9,
       "teleop_cone_M1": teleop_cone_M1,
       "teleop_cube_M2": teleop_cube_M2,
       "teleop_cone_M3": teleop_cone_M3,
@@ -226,13 +225,16 @@ class Performance implements Comparable<Performance> {
 
   @override
   String toString() {
-    List<int> auto_list = [
-      auto_cone_L1,
-      auto_cone_L3,
-      auto_cone_L4,
-      auto_cone_L6,
-      auto_cone_L7,
-      auto_cone_L9,
+    List<int> first = [
+      auto_hybrid_L1,
+      auto_hybrid_L2,
+      auto_hybrid_L3,
+      auto_hybrid_L4,
+      auto_hybrid_L5,
+      auto_hybrid_L6,
+      auto_hybrid_L7,
+      auto_hybrid_L8,
+      auto_hybrid_L9,
       auto_cone_M1,
       auto_cube_M2,
       auto_cone_M3,
@@ -241,7 +243,9 @@ class Performance implements Comparable<Performance> {
       auto_cone_M6,
       auto_cone_M7,
       auto_cube_M8,
-      auto_cone_M9,
+      auto_cone_M9
+    ];
+    List<int> second = [
       auto_cone_H1,
       auto_cube_H2,
       auto_cone_H3,
@@ -250,21 +254,18 @@ class Performance implements Comparable<Performance> {
       auto_cone_H6,
       auto_cone_H7,
       auto_cube_H8,
-      auto_cone_H9
-    ];
-    List<int> teleop_list = [
-      auto_hybrid_L2,
-      auto_hybrid_L5,
-      auto_hybrid_L8,
-      teleop_cone_L1,
+      auto_cone_H9,
+      teleop_hybrid_L1,
       teleop_hybrid_L2,
-      teleop_cone_L3,
-      teleop_cone_L4,
+      teleop_hybrid_L3,
+      teleop_hybrid_L4,
       teleop_hybrid_L5,
-      teleop_cone_L6,
-      teleop_cone_L7,
+      teleop_hybrid_L6,
+      teleop_hybrid_L7,
       teleop_hybrid_L8,
-      teleop_cone_L9,
+      teleop_hybrid_L9
+    ];
+    List<int> third = [
       teleop_cone_M1,
       teleop_cube_M2,
       teleop_cone_M3,
@@ -291,14 +292,10 @@ class Performance implements Comparable<Performance> {
       position,
       shortenString(preload, ["None", "Park", "Docked", "Engaged"]),
       toInteger(move),
-      shortenString(exit_path, ["None", "Cable", "Flat", "Both"]),
-      shortenString(auto_charge, ["None", "Cube", "Cone", "Both"]),
-      toDecimal(auto_list),
-      teleop_list
-          .toString()
-          .replaceAll(" ", "")
-          .replaceAll("[", "")
-          .replaceAll("]", ""),
+      auto_charge,
+      toHEX(first),
+      toHEX(second),
+      toHEX(third),
       cycles,
       fouls_committed,
       charging_station_time * 10,
@@ -330,14 +327,6 @@ class Performance implements Comparable<Performance> {
       return 1;
     }
     return 0;
-  }
-
-  String toDecimal(List<int> list) {
-    String binary = "";
-    for (int number in list) {
-      binary += (number + 1).toString();
-    }
-    return int.parse(binary, radix: 2).toString();
   }
 
   int shortenString(String string, List options) {
