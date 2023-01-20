@@ -229,6 +229,7 @@ class _AutonPageState extends State<AutonPage> {
               CheckBox(
                 text: "Lost connection",
                 onChecked: (checked) {
+                  // print(checked);
                   data.disconnect = checked;
                 },
               )
