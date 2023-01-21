@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/screens/auton.dart';
-import 'package:scouting_app_2023/screens/comments.dart';
 import 'package:scouting_app_2023/screens/teleop.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/custom_icons.dart';
@@ -33,7 +32,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       AutonPage(data: data),
       Teleop(data: data),
       Center(child: Text('Endgame')),
-      CommentPage(),
+      Center(child: Text('Review')),
     ];
     return Scaffold(
       body: IndexedStack(
@@ -76,7 +75,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(CustomIcons.attach_file),
-              label: 'Comments',
+              label: 'Review',
               backgroundColor: Colors.green,
             ),
           ]),
