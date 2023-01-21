@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/screens/auton.dart';
+import 'package:scouting_app_2023/screens/endgame.dart';
 import 'package:scouting_app_2023/screens/prematch.dart';
 import 'package:scouting_app_2023/screens/teleop.dart';
 import 'package:scouting_app_2023/database/performance.dart';
@@ -32,7 +33,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       PreMatchScreen(data: data),
       AutonPage(data: data),
       Teleop(data: data),
-      Center(child: Text('Endgame')),
+      EndGameScreen(data: data),
       Center(child: Text('Review')),
     ];
     return Scaffold(

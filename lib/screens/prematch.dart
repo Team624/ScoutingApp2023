@@ -90,6 +90,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text("Starting Position:  "),
               Container(
                 width: MediaQuery.of(context).size.width / 4,
                 child: Slider(
@@ -108,6 +109,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                   },
                 ),
               ),
+              Text("Preload:       "),
               ToggleButtons(
                 direction: Axis.horizontal,
                 onPressed: (int index) {
