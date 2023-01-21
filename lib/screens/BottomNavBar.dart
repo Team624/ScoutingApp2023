@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/screens/auton.dart';
 import 'package:scouting_app_2023/screens/endgame.dart';
 import 'package:scouting_app_2023/screens/prematch.dart';
+import 'package:scouting_app_2023/screens/review.dart';
 import 'package:scouting_app_2023/screens/teleop.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/custom_icons.dart';
@@ -34,7 +35,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       AutonPage(data: data),
       Teleop(data: data),
       EndGameScreen(data: data),
-      Center(child: Text('Review')),
+      ReviewPage(data: data)
     ];
     return Scaffold(
       body: IndexedStack(
@@ -43,12 +44,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color.fromARGB(255, 65, 192, 69),
+          backgroundColor: const Color.fromARGB(255, 65, 192, 69),
           iconSize: 25,
-          selectedIconTheme: IconThemeData(size: 35),
+          selectedIconTheme: const IconThemeData(size: 35),
           selectedFontSize: 15,
           unselectedFontSize: 10,
-          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           selectedItemColor: Colors.black,
           unselectedIconTheme: IconThemeData(
             color: Colors.grey[750],
@@ -56,26 +57,26 @@ class _BottomNavBarState extends State<BottomNavBar> {
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
           items: [
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(CustomIcons.bxs_grid_alt),
               label: 'Prematch',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(CustomIcons.bxs_bot),
               label: 'Auton',
               backgroundColor: Colors.green,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(CustomIcons.bxs_joystick),
               label: 'Teleop',
               backgroundColor: Colors.green,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(CustomIcons.bx_hourglass),
               label: 'Endgame',
               backgroundColor: Colors.green,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(CustomIcons.attach_file),
               label: 'Review',
               backgroundColor: Colors.green,

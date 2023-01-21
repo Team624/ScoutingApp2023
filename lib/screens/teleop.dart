@@ -218,17 +218,17 @@ class _TeleopState extends State<Teleop> {
                     data.fouls_committed = numFouls;
                   },
                   text: "Fouls Committed"),
-              TextButton(
-                onPressed: () async {
-                  await insertPerformance(data);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => DisplayQRcode(data: data)),
-                  );
-                },
-                child: Text('Save', style: TextStyle(fontSize: 30.0)),
-              ),
+              // TextButton(
+              //   onPressed: () async {
+              //     await insertPerformance(data);
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //           builder: (context) => DisplayQRcode(data: data)),
+              //     );
+              //   },
+              //   child: Text('Save', style: TextStyle(fontSize: 30.0)),
+              // ),
             ],
           )
         ],

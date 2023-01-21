@@ -210,16 +210,12 @@ class _AutonPageState extends State<AutonPage> {
                 child: Slider(
                   value: auton_slider,
                   min: 0,
-                  max: 3,
-                  divisions: 3,
-                  label: [
-                    "None",
-                    "Park",
-                    "Docked",
-                    "Engaged"
-                  ][auton_slider.toInt()],
+                  max: 2,
+                  divisions: 2,
+                  label: ["None", "Docked", "Engaged"][auton_slider.toInt()],
                   onChanged: (double value) {
                     setState(() {
+                      print(value);
                       auton_slider = value;
                       data.auto_charge = auton_slider.toInt();
                     });
