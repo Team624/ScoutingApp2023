@@ -36,15 +36,15 @@ class _ChargeTimerState extends State<ChargeTimer> {
         Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: Colors.grey[300]),
-          height: 75,
-          width: 75,
+          height: 100,
+          width: 100,
           child: Center(
             child: Text(
                 stopwatch.elapsed.inSeconds.toString() +
                     "." +
                     (stopwatch.elapsed.inMilliseconds % 1000).toString(),
                 style:
-                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
           ),
         ),
         TextButton(
@@ -57,7 +57,7 @@ class _ChargeTimerState extends State<ChargeTimer> {
               }
             });
           },
-          child: const Text('Start/Stop'),
+          child: const Text('Start/Stop', style: TextStyle(fontSize: 20)),
         ),
         TextButton(
           onPressed: () {
@@ -67,7 +67,8 @@ class _ChargeTimerState extends State<ChargeTimer> {
               widget.data.charging_station_time = 0;
             });
           },
-          child: const Text('I messed up button'),
+          child:
+              const Text('I messed up button', style: TextStyle(fontSize: 20)),
         ),
       ],
     ));

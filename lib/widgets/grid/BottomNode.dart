@@ -3,7 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNode extends StatefulWidget {
   final onChanged;
-  const BottomNode({super.key, required this.onChanged});
+  var hideFailed = false;
+  BottomNode({super.key, required this.onChanged, this.hideFailed = false});
 
   @override
   State<BottomNode> createState() => _BottomNodeState();
@@ -32,12 +33,18 @@ class _BottomNodeState extends State<BottomNode> {
                 ? activated_cube
                 : gamepiece == 2
                     ? activated_cone
-                    : gamepiece == 3
-                        ? failed_cube
-                        : failed_cone,
+                    : widget.hideFailed
+                        ? nothing
+                        : gamepiece == 3
+                            ? failed_cube
+                            : failed_cone,
         onTap: () {
           setState(() {
-            gamepiece = (gamepiece + 1) % 5;
+            if (widget.hideFailed) {
+              gamepiece = (gamepiece + 1) % 3;
+            } else {
+              gamepiece = (gamepiece + 1) % 5;
+            }
             widget.onChanged(gamepiece);
           });
         });

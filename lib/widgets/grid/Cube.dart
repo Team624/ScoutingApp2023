@@ -3,7 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class Cube extends StatefulWidget {
   final onChanged;
-  const Cube({super.key, required this.onChanged});
+  final hideFailed;
+  const Cube({super.key, required this.onChanged, this.hideFailed = false});
 
   @override
   State<Cube> createState() => _CubeState();
@@ -26,10 +27,16 @@ class _CubeState extends State<Cube> {
             ? deactivated_cube
             : state == 1
                 ? activated_cube
-                : failed_cube,
+                : widget.hideFailed
+                    ? deactivated_cube
+                    : failed_cube,
         onTap: () {
           setState(() {
-            state = (state + 1) % 3;
+            if (widget.hideFailed) {
+              state = (state + 1) % 2;
+            } else {
+              state = (state + 1) % 3;
+            }
             widget.onChanged(state);
           });
         });

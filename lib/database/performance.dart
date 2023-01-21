@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:scouting_app_2023/utils/baseConverter.dart';
 
 class Performance implements Comparable<Performance> {
@@ -304,11 +306,11 @@ class Performance implements Comparable<Performance> {
       toInteger(triple_balance),
       toInteger(disconnect)
     ];
-    String output_str = "";
+    String outputStr = "";
     for (dynamic item in output) {
-      output_str += "${item.toString()},";
+      outputStr += "${item.toString()},";
     }
-    return output_str.substring(0, output_str.length - 1);
+    return outputStr.substring(0, outputStr.length - 1);
   }
 
   int toInteger(bool boolean) {

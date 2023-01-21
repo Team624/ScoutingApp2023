@@ -5,7 +5,8 @@ import 'package:flutter_svg/svg.dart';
 
 class Cone extends StatefulWidget {
   final onChanged;
-  const Cone({super.key, required this.onChanged});
+  final hideFailed;
+  const Cone({super.key, required this.onChanged, this.hideFailed = false});
 
   @override
   State<Cone> createState() => _ConeState();
@@ -28,10 +29,16 @@ class _ConeState extends State<Cone> {
             ? deactivated_cone
             : state == 1
                 ? activated_cone
-                : failed_cone,
+                : widget.hideFailed
+                    ? deactivated_cone
+                    : failed_cone,
         onTap: () {
           setState(() {
-            state = (state + 1) % 3;
+            if (widget.hideFailed) {
+              state = (state + 1) % 2;
+            } else {
+              state = (state + 1) % 3;
+            }
             widget.onChanged(state);
           });
         });

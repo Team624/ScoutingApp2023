@@ -22,26 +22,32 @@ class _EndGameScreenState extends State<EndGameScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ChargeTimer(data: widget.data),
-          Container(
-            width: MediaQuery.of(context).size.width / 4,
-            child: Slider(
-              value: charger_state,
-              min: 0,
-              max: 3,
-              divisions: 3,
-              label: [
-                "None",
-                "Park",
-                "Docked",
-                "Engaged"
-              ][charger_state.toInt()],
-              onChanged: (double value) {
-                setState(() {
-                  charger_state = value;
-                  widget.data.auto_charge = charger_state.toInt();
-                });
-              },
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Charger State: "),
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                child: Slider(
+                  value: charger_state,
+                  min: 0,
+                  max: 3,
+                  divisions: 3,
+                  label: [
+                    "None",
+                    "Park",
+                    "Docked",
+                    "Engaged"
+                  ][charger_state.toInt()],
+                  onChanged: (double value) {
+                    setState(() {
+                      charger_state = value;
+                      widget.data.auto_charge = charger_state.toInt();
+                    });
+                  },
+                ),
+              ),
+            ],
           ),
         ],
       ),

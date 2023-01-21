@@ -205,22 +205,31 @@ class _AutonPageState extends State<AutonPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width / 4,
-                child: Slider(
-                  value: auton_slider,
-                  min: 0,
-                  max: 2,
-                  divisions: 2,
-                  label: ["None", "Docked", "Engaged"][auton_slider.toInt()],
-                  onChanged: (double value) {
-                    setState(() {
-                      print(value);
-                      auton_slider = value;
-                      data.auto_charge = auton_slider.toInt();
-                    });
-                  },
-                ),
+              Row(
+                children: [
+                  Text("Auton charge station:  "),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 4,
+                    child: Slider(
+                      value: auton_slider,
+                      min: 0,
+                      max: 2,
+                      divisions: 2,
+                      label: [
+                        "None",
+                        "Docked",
+                        "Engaged"
+                      ][auton_slider.toInt()],
+                      onChanged: (double value) {
+                        setState(() {
+                          print(value);
+                          auton_slider = value;
+                          data.auto_charge = auton_slider.toInt();
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
               CheckBox(
                 text: "Lost connection",
