@@ -141,12 +141,16 @@ class _AutonPageState extends State<AutonPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.auto_hybrid_L1 = gamepiece;
-                  },
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.auto_hybrid_L1 = gamepiece % 5;
+                    },
+                  ),
                 ),
                 SizedBox(
+                    height: 113,
                     child: Container(
                         width: 90,
                         child: BottomNode(
@@ -154,22 +158,29 @@ class _AutonPageState extends State<AutonPage> {
                             data.auto_hybrid_L2 = gamepiece;
                           },
                         ))),
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.auto_hybrid_L3 = gamepiece;
-                  },
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.auto_hybrid_L3 = gamepiece % 5;
+                    },
+                  ),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.auto_hybrid_L4 = gamepiece;
-                  },
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.auto_hybrid_L4 = gamepiece % 5;
+                    },
+                  ),
                 ),
                 SizedBox(
+                    height: 113,
                     child: Container(
                         width: 90,
                         child: BottomNode(
@@ -177,33 +188,45 @@ class _AutonPageState extends State<AutonPage> {
                             data.auto_hybrid_L5 = gamepiece;
                           },
                         ))),
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.auto_hybrid_L6 = gamepiece;
-                  },
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.auto_hybrid_L6 = gamepiece % 5;
+                    },
+                  ),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.auto_hybrid_L7 = gamepiece;
-                  },
+                SizedBox(
+                  width: 90,
+                  height: 113,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.auto_hybrid_L7 = gamepiece % 5;
+                    },
+                  ),
                 ),
                 SizedBox(
                     child: Container(
+                        height: 113,
                         width: 90,
                         child: BottomNode(
                           onChanged: (gamepiece) {
                             data.auto_hybrid_L8 = gamepiece;
                           },
                         ))),
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.auto_hybrid_L9 = gamepiece;
-                  },
+                SizedBox(
+                  width: 90,
+                  height: 113,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.auto_hybrid_L9 = gamepiece % 5;
+                    },
+                  ),
                 ),
               ],
             ),

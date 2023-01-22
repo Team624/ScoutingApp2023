@@ -155,14 +155,18 @@ class _TeleopState extends State<Teleop> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    print(gamepiece);
-                    data.teleop_hybrid_L1 = gamepiece;
-                  },
-                  hideFailed: true,
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      print(gamepiece);
+                      data.teleop_hybrid_L1 = gamepiece % 5;
+                    },
+                    hideFailed: true,
+                  ),
                 ),
                 SizedBox(
+                    height: 113,
                     child: Container(
                         width: 90,
                         child: BottomNode(
@@ -171,24 +175,31 @@ class _TeleopState extends State<Teleop> {
                           },
                           hideFailed: true,
                         ))),
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.teleop_hybrid_L3 = gamepiece;
-                  },
-                  hideFailed: true,
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.teleop_hybrid_L3 = gamepiece % 5;
+                    },
+                    hideFailed: true,
+                  ),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.teleop_hybrid_L4 = gamepiece;
-                  },
-                  hideFailed: true,
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.teleop_hybrid_L4 = gamepiece % 5;
+                    },
+                    hideFailed: true,
+                  ),
                 ),
                 SizedBox(
+                    height: 113,
                     child: Container(
                         width: 90,
                         child: BottomNode(
@@ -197,37 +208,49 @@ class _TeleopState extends State<Teleop> {
                           },
                           hideFailed: true,
                         ))),
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.teleop_hybrid_L6 = gamepiece;
-                  },
-                  hideFailed: true,
+                SizedBox(
+                  width: 90,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.teleop_hybrid_L6 = gamepiece % 5;
+                    },
+                    hideFailed: true,
+                  ),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.teleop_hybrid_L7 = gamepiece;
-                  },
-                  hideFailed: true,
+                SizedBox(
+                  width: 90,
+                  height: 113,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.teleop_hybrid_L7 = gamepiece % 5;
+                    },
+                    hideFailed: true,
+                  ),
                 ),
                 SizedBox(
                     child: Container(
                         width: 90,
+                        height: 113,
                         child: BottomNode(
                           onChanged: (gamepiece) {
                             data.teleop_hybrid_L8 = gamepiece;
                           },
                           hideFailed: true,
                         ))),
-                BottomNode(
-                  onChanged: (gamepiece) {
-                    data.teleop_hybrid_L9 = gamepiece;
-                  },
-                  hideFailed: true,
+                SizedBox(
+                  width: 90,
+                  height: 113,
+                  child: BottomNode(
+                    onChanged: (gamepiece) {
+                      data.teleop_hybrid_L9 = gamepiece % 5;
+                    },
+                    hideFailed: true,
+                  ),
                 ),
               ],
             ),
@@ -245,17 +268,6 @@ class _TeleopState extends State<Teleop> {
                     data.fouls_committed = numFouls;
                   },
                   text: "Fouls Committed"),
-              // TextButton(
-              //   onPressed: () async {
-              //     await insertPerformance(data);
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //           builder: (context) => DisplayQRcode(data: data)),
-              //     );
-              //   },
-              //   child: Text('Save', style: TextStyle(fontSize: 30.0)),
-              // ),
             ],
           )
         ],
