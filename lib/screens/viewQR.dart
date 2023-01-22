@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scouting_app_2023/database/database.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/utils/pretty_qr_code.dart';
 import 'BottomNavBar.dart';
@@ -23,10 +24,7 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
         child: AppBar(
           centerTitle: true,
           title: Text(
-            "QR Code for " +
-                data.team.toString() +
-                " in Match " +
-                data.match.toString(),
+            data.team.toString() + " in Match " + data.match.toString(),
             style: TextStyle(
               color: Colors.black,
               fontSize: 35,
@@ -46,8 +44,8 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
           Spacer(),
           TextButton(
             child: Text("DONE"),
-            onPressed: () {
-              print(data.toMap());
+            onPressed: () async {
+              print(await viewDB());
               Navigator.push(
                 context,
                 MaterialPageRoute(

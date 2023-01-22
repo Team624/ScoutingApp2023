@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/screens/viewQR.dart';
-// import 'package:scouting_app/backend/csv/CsvUtil.dart';
-// import 'package:scouting_app/backend/csv/MatchData.dart';
-// import 'package:scouting_app/pages/DataView.dart';
-
 import '../database/database.dart';
 import '../database/performance.dart';
 

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Counter extends StatefulWidget {
   final String text;
@@ -18,10 +16,6 @@ class _CounterState extends State<Counter> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        border: Border.all(color: Colors.blueAccent),
-      ),
       height: 50,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

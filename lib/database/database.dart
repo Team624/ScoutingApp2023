@@ -19,7 +19,13 @@ final database = createdDB();
 
 String getCreateStatement() {
   Map<String, List<String>> myData = {
-    'TEXT': ['initials', 'position', 'preload', 'charging_station_endgame'],
+    'TEXT': [
+      'initials',
+      'position',
+      'preload',
+      'auto_charge',
+      'charge_endgame'
+    ],
     'INTEGER': [
       'match',
       'team',
@@ -51,7 +57,6 @@ String getCreateStatement() {
       'auto_cone_H7',
       'auto_cube_H8',
       'auto_cone_H9',
-      'auto_charge',
       'teleop_hybrid_L1',
       'teleop_hybrid_L2',
       'teleop_hybrid_L3',
@@ -173,7 +178,7 @@ Future<List<Performance>> performance() async {
         cycles: maps[i]["cycles"],
         fouls_committed: maps[i]["fouls_committed"],
         charging_station_time: maps[i]["charging_station_time"],
-        charging_station_endgame: maps[i]["charging_station_endgame"],
+        charge_endgame: maps[i]["charge_endgame"],
         triple_balance: toBool(maps[i]["triple_balance"]),
         disconnect: toBool(maps[i]["disconnect"]));
   });

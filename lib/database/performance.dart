@@ -9,9 +9,9 @@ class Performance implements Comparable<Performance> {
   int team = 0;
 
   // Auton
-  String position = "None";
+  String position = "Center";
   String preload = "None";
-  bool move = true;
+  bool move = false;
   int auto_hybrid_L1 = 0;
   int auto_hybrid_L2 = 0;
   int auto_hybrid_L3 = 0;
@@ -39,7 +39,7 @@ class Performance implements Comparable<Performance> {
   int auto_cone_H7 = 0;
   int auto_cube_H8 = 0;
   int auto_cone_H9 = 0;
-  int auto_charge = 0;
+  String auto_charge = "None";
 
   // Teleop
   int teleop_hybrid_L1 = 0;
@@ -74,7 +74,7 @@ class Performance implements Comparable<Performance> {
 
   // Endgame
   int charging_station_time = 0;
-  String charging_station_endgame = "None";
+  String charge_endgame = "None";
   bool triple_balance = false;
   bool disconnect = false;
 
@@ -149,7 +149,7 @@ class Performance implements Comparable<Performance> {
       required this.cycles,
       required this.fouls_committed,
       required this.charging_station_time,
-      required this.charging_station_endgame,
+      required this.charge_endgame,
       required this.triple_balance,
       required this.disconnect});
 
@@ -158,8 +158,8 @@ class Performance implements Comparable<Performance> {
       "initials": initials,
       "match": match,
       "team": team,
-      "position": position,
-      "preload": preload,
+      "position": shortenString(position, ["Left", "Center", "Right"]),
+      "preload": shortenString(preload, ["None", "Cone", "Cube"]),
       "move": toInteger(move),
       "auto_hybrid_L1": auto_hybrid_L1,
       "auto_hybrid_L2": auto_hybrid_L2,
@@ -188,7 +188,7 @@ class Performance implements Comparable<Performance> {
       "auto_cone_H7": auto_cone_H7,
       "auto_cube_H8": auto_cube_H8,
       "auto_cone_H9": auto_cone_H9,
-      "auto_charge": auto_charge,
+      "auto_charge": shortenString(auto_charge, ["None", "Docked", "Engaged"]),
       "teleop_hybrid_L1": teleop_hybrid_L1,
       "teleop_hybrid_L2": teleop_hybrid_L2,
       "teleop_hybrid_L3": teleop_hybrid_L3,
@@ -219,7 +219,8 @@ class Performance implements Comparable<Performance> {
       "cycles": cycles,
       "fouls_committed": fouls_committed,
       "charging_station_time": charging_station_time,
-      "charging_station_endgame": charging_station_endgame,
+      "charge_endgame":
+          shortenString(charge_endgame, ["None", "Park", "Docked", "Engaged"]),
       "triple_balance": toInteger(triple_balance),
       "disconnect": toInteger(disconnect)
     };
@@ -291,18 +292,17 @@ class Performance implements Comparable<Performance> {
       initials,
       match,
       team,
-      position,
-      shortenString(preload, ["None", "Park", "Docked", "Engaged"]),
+      shortenString(position, ["Left", "Center", "Right"]),
+      shortenString(preload, ["None", "Cone", "Cube"]),
       toInteger(move),
-      auto_charge,
+      shortenString(auto_charge, ["None", "Docked", "Engaged"]),
       toHEX(first),
       toHEX(second),
       toHEX(third),
       cycles,
       fouls_committed,
-      charging_station_time * 10,
-      shortenString(
-          charging_station_endgame, ["None", "Park", "Docked", "Engaged"]),
+      charging_station_time,
+      shortenString(charge_endgame, ["None", "Parked", "Docked", "Engaged"]),
       toInteger(triple_balance),
       toInteger(disconnect)
     ];

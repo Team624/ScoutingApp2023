@@ -28,7 +28,7 @@ class _CheckBoxState extends State<CheckBox> {
               height: 40,
               width: 40,
               color: Colors.grey[300],
-              child: isChecked
+              child: !isChecked
                   ? null
                   : Icon(
                       Icons.check,

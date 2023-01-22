@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../database/performance.dart';
 
 class PreMatchScreen extends StatefulWidget {
@@ -15,12 +11,10 @@ class PreMatchScreen extends StatefulWidget {
 }
 
 class _PreMatchScreenState extends State<PreMatchScreen> {
-  double startingLocation = 0;
-
-  List startingPoses = [
-    "Left",
-    "Center",
-    "Right",
+  final List<Widget> starting_poses = <Widget>[
+    Text('Left'),
+    Text('Center'),
+    Text('Right')
   ];
 
   final List<Widget> preloadables = <Widget>[
@@ -30,6 +24,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
   ];
 
   final List<bool> _selectedPreloadedGamepiece = <bool>[true, false, false];
+  final List<bool> _selectedPStartingPosition = <bool>[false, true, false];
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -44,9 +39,15 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextField(
                     onChanged: (newText) {
-                      widget.data.match = int.parse(newText);
+                      try {
+                        widget.data.match = int.parse(newText);
+                      } catch (e) {
+                        widget.data.match = 0;
+                        //piss
+                      }
                     },
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Match #',
@@ -59,15 +60,19 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextField(
-                    onChanged: (newText) {
-                      widget.data.team = int.parse(newText);
-                    },
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Team #',
-                    ),
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  ),
+                      onChanged: (newText) {
+                        try {
+                          widget.data.team = int.parse(newText);
+                        } catch (e) {
+                          widget.data.team = 0;
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Team #',
+                      ),
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      keyboardType: TextInputType.number),
                 ),
               ),
               Expanded(
@@ -78,6 +83,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                     onChanged: (newValue) {
                       widget.data.initials = newValue;
                     },
+                    inputFormatters: [LengthLimitingTextInputFormatter(2)],
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Scouter Initials',
@@ -87,27 +93,51 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
               ),
             ],
           ),
+          Container(
+            height: MediaQuery.of(context).size.height / 20,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Starting Position:  "),
               Container(
                 width: MediaQuery.of(context).size.width / 4,
-                child: Slider(
-                  value: startingLocation,
-                  min: 0,
-                  max: 2,
-                  divisions: 2,
-                  label: startingPoses[startingLocation.toInt()],
-                  onChanged: (double value) {
+                child: ToggleButtons(
+                  direction: Axis.horizontal,
+                  onPressed: (int index) {
                     setState(() {
-                      startingLocation = value;
-                      widget.data.position =
-                          (startingPoses[value.toInt()] as String)
-                              .substring(0, 1);
+                      // The button that is tapped is set to true, and the others to false.
+                      for (int i = 0;
+                          i < _selectedPStartingPosition.length;
+                          i++) {
+                        _selectedPStartingPosition[i] = i == index;
+                        // TODO: fix this weird code, it works but is weird
+                        widget.data.position =
+                            _selectedPStartingPosition[0] == true
+                                ? "Left"
+                                : _selectedPStartingPosition[1] == true
+                                    ? "Center"
+                                    : _selectedPStartingPosition[2] == true
+                                        ? "Right"
+                                        : "";
+                      }
                     });
                   },
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  selectedBorderColor: Color.fromARGB(255, 65, 192, 69),
+                  selectedColor: Colors.black,
+                  fillColor: Color.fromARGB(255, 65, 192, 69),
+                  color: Color.fromARGB(255, 65, 192, 69),
+                  constraints: const BoxConstraints(
+                    minHeight: 50.0,
+                    minWidth: 80.0,
+                  ),
+                  isSelected: _selectedPStartingPosition,
+                  children: starting_poses,
                 ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 6,
               ),
               Text("Preload:       "),
               ToggleButtons(
@@ -133,12 +163,12 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                   });
                 },
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
-                selectedBorderColor: Colors.red[700],
-                selectedColor: Colors.white,
-                fillColor: Colors.red[200],
-                color: Colors.red[400],
+                selectedBorderColor: Color.fromARGB(255, 65, 192, 69),
+                selectedColor: Colors.black,
+                fillColor: Color.fromARGB(255, 65, 192, 69),
+                color: Color.fromARGB(255, 65, 192, 69),
                 constraints: const BoxConstraints(
-                  minHeight: 40.0,
+                  minHeight: 50.0,
                   minWidth: 80.0,
                 ),
                 isSelected: _selectedPreloadedGamepiece,

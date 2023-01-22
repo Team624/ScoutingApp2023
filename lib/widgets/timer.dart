@@ -1,15 +1,5 @@
-/*
-
-This should probably be deleted soon
-
-*/
-
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../database/performance.dart';
 
 class ChargeTimer extends StatefulWidget {
@@ -67,8 +57,7 @@ class _ChargeTimerState extends State<ChargeTimer> {
               widget.data.charging_station_time = 0;
             });
           },
-          child:
-              const Text('I messed up button', style: TextStyle(fontSize: 20)),
+          child: const Text('Reset', style: TextStyle(fontSize: 20)),
         ),
       ],
     ));

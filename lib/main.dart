@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/screens/BottomNavBar.dart';
 import 'package:scouting_app_2023/database/performance.dart';
-import 'database/database.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  deleteDatabase();
   runApp(const MyApp());
 }
 
