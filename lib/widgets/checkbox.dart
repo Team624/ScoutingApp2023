@@ -16,8 +16,8 @@ class _CheckBoxState extends State<CheckBox> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          widget.onChecked(isChecked);
           isChecked = !isChecked;
+          widget.onChecked(isChecked);
         });
       },
       child: Row(
@@ -25,8 +25,8 @@ class _CheckBoxState extends State<CheckBox> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-              height: 40,
-              width: 40,
+              height: 50,
+              width: 50,
               color: Colors.grey[300],
               child: !isChecked
                   ? null

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../database/performance.dart';
-import '../widgets/checkbox.dart';
-import '../widgets/timer.dart';
+import 'package:scouting_app_2023/database/performance.dart';
+import 'package:scouting_app_2023/widgets/checkbox.dart';
+import 'package:scouting_app_2023/widgets/timer.dart';
 
 class EndGameScreen extends StatefulWidget {
   Performance data;
@@ -41,17 +41,9 @@ class _EndGameScreenState extends State<EndGameScreen> {
                       // The button that is tapped is set to true, and the others to false.
                       for (int i = 0; i < _selectedChargeEndgame.length; i++) {
                         _selectedChargeEndgame[i] = i == index;
-                        widget.data.charge_endgame =
-                            _selectedChargeEndgame[0] == true
-                                ? "None"
-                                : _selectedChargeEndgame[1] == true
-                                    ? "Parked"
-                                    : _selectedChargeEndgame[2] == true
-                                        ? "Docked"
-                                        : _selectedChargeEndgame[3] == true
-                                            ? "Engaged"
-                                            : "";
                       }
+                      widget.data.charge_endgame =
+                          _selectedChargeEndgame.indexOf(true);
                     });
                   },
                   borderRadius: const BorderRadius.all(Radius.circular(8)),

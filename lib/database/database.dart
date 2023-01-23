@@ -21,15 +21,14 @@ String getCreateStatement() {
   Map<String, List<String>> myData = {
     'TEXT': [
       'initials',
-      'position',
-      'preload',
-      'auto_charge',
-      'charge_endgame'
     ],
     'INTEGER': [
       'match',
       'team',
+      'position',
+      'preload',
       'move',
+      'auto_charge',
       'auto_hybrid_L1',
       'auto_hybrid_L2',
       'auto_hybrid_L3',
@@ -87,6 +86,7 @@ String getCreateStatement() {
       'cycles',
       'fouls_committed',
       'charging_station_time',
+      'charge_endgame',
       'triple_balance',
       'disconnect'
     ]

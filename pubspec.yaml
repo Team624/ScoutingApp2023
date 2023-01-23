@@ -41,7 +41,6 @@ dependencies:
   sqflite:
   path:
   flutter_svg: ^1.1.6
-  b: ^0.1.1+1
   # animated_bottom_navigation_bar: ^1.1.0+1
   # stepper_counter_swipe: ^1.0.2
 

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/widgets/checkbox.dart';
 import 'package:scouting_app_2023/widgets/grid/Cone.dart';
 import 'package:scouting_app_2023/widgets/grid/Cube.dart';
-import '../database/performance.dart';
-import '../widgets/grid/BottomNode.dart';
+import 'package:scouting_app_2023/database/performance.dart';
+import 'package:scouting_app_2023/widgets/grid/BottomNode.dart';
 
 class AutonPage extends StatefulWidget {
   Performance data;
@@ -145,7 +145,7 @@ class _AutonPageState extends State<AutonPage> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.auto_hybrid_L1 = gamepiece % 5;
+                      data.auto_hybrid_L1 = gamepiece;
                     },
                   ),
                 ),
@@ -162,7 +162,7 @@ class _AutonPageState extends State<AutonPage> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.auto_hybrid_L3 = gamepiece % 5;
+                      data.auto_hybrid_L3 = gamepiece;
                     },
                   ),
                 ),
@@ -175,7 +175,7 @@ class _AutonPageState extends State<AutonPage> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.auto_hybrid_L4 = gamepiece % 5;
+                      data.auto_hybrid_L4 = gamepiece;
                     },
                   ),
                 ),
@@ -192,7 +192,7 @@ class _AutonPageState extends State<AutonPage> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.auto_hybrid_L6 = gamepiece % 5;
+                      data.auto_hybrid_L6 = gamepiece;
                     },
                   ),
                 ),
@@ -206,7 +206,7 @@ class _AutonPageState extends State<AutonPage> {
                   height: 113,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.auto_hybrid_L7 = gamepiece % 5;
+                      data.auto_hybrid_L7 = gamepiece;
                     },
                   ),
                 ),
@@ -224,7 +224,7 @@ class _AutonPageState extends State<AutonPage> {
                   height: 113,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.auto_hybrid_L9 = gamepiece % 5;
+                      data.auto_hybrid_L9 = gamepiece;
                     },
                   ),
                 ),
@@ -239,7 +239,6 @@ class _AutonPageState extends State<AutonPage> {
                   CheckBox(
                     text: "Left Community",
                     onChecked: (checked) {
-                      // print(checked);
                       widget.data.move = checked;
                     },
                   ),
@@ -253,21 +252,13 @@ class _AutonPageState extends State<AutonPage> {
                       direction: Axis.horizontal,
                       onPressed: (int index) {
                         setState(() {
-                          // The button that is tapped is set to true, and the others to false.
                           for (int i = 0;
                               i < _selectedChargeAuton.length;
                               i++) {
                             _selectedChargeAuton[i] = i == index;
-                            // TODO: fix this weird code, it works but is weird
-                            widget.data.auto_charge =
-                                _selectedChargeAuton[0] == true
-                                    ? "None"
-                                    : _selectedChargeAuton[1] == true
-                                        ? "Docked"
-                                        : _selectedChargeAuton[2] == true
-                                            ? "Engaged"
-                                            : "";
                           }
+                          widget.data.auto_charge =
+                              _selectedChargeAuton.indexOf(true);
                         });
                       },
                       borderRadius: const BorderRadius.all(Radius.circular(8)),

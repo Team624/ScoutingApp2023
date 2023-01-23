@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/screens/auton.dart';
 import 'package:scouting_app_2023/screens/endgame.dart';
 import 'package:scouting_app_2023/screens/prematch.dart';
-import 'package:scouting_app_2023/screens/review.dart';
+import 'package:scouting_app_2023/screens/viewQR.dart';
 import 'package:scouting_app_2023/screens/teleop.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/custom_icons.dart';
@@ -35,7 +35,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       AutonPage(data: data),
       Teleop(data: data),
       EndGameScreen(data: data),
-      ReviewPage(data: data)
+      DisplayQRcode(data: data)
     ];
     return Scaffold(
       body: IndexedStack(
@@ -78,7 +78,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
             const BottomNavigationBarItem(
               icon: Icon(CustomIcons.attach_file),
-              label: 'Review',
+              label: 'QR Code',
               backgroundColor: Colors.green,
             ),
           ]),

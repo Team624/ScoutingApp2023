@@ -1,14 +1,13 @@
-import 'package:b/b.dart';
-
-final BaseConversion converter = BaseConversion(
-  from: base5,
-  to: base16,
-);
-
-String toHEX(List<int> list) {
+String parse(List<int> list) {
   String given = "";
   for (int number in list) {
     given += number.toString();
   }
-  return converter(given);
+  return given;
+}
+
+String convertBaseAto32(List<int> list, int baseA) {
+  String number = parse(list);
+  int decimal = int.parse(number, radix: baseA);
+  return decimal.toRadixString(32);
 }

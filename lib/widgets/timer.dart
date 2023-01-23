@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../database/performance.dart';
+import 'package:scouting_app_2023/database/performance.dart';
 
 class ChargeTimer extends StatefulWidget {
   Performance data;

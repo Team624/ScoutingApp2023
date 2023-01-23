@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/database/database.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/utils/pretty_qr_code.dart';
-import 'BottomNavBar.dart';
+import 'package:scouting_app_2023/screens/BottomNavBar.dart';
 
 class DisplayQRcode extends StatefulWidget {
   Performance data;
@@ -45,7 +45,9 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
           TextButton(
             child: Text("DONE"),
             onPressed: () async {
+              await insertPerformance(data);
               print(await viewDB());
+              print(await data.toMap());
               Navigator.push(
                 context,
                 MaterialPageRoute(

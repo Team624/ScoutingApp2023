@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../database/performance.dart';
+import 'package:scouting_app_2023/database/performance.dart';
 
 class PreMatchScreen extends StatefulWidget {
   Performance data;
@@ -24,7 +24,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
   ];
 
   final List<bool> _selectedPreloadedGamepiece = <bool>[true, false, false];
-  final List<bool> _selectedPStartingPosition = <bool>[false, true, false];
+  final List<bool> _selectedStartingPosition = <bool>[false, true, false];
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -108,19 +108,12 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                     setState(() {
                       // The button that is tapped is set to true, and the others to false.
                       for (int i = 0;
-                          i < _selectedPStartingPosition.length;
+                          i < _selectedStartingPosition.length;
                           i++) {
-                        _selectedPStartingPosition[i] = i == index;
-                        // TODO: fix this weird code, it works but is weird
-                        widget.data.position =
-                            _selectedPStartingPosition[0] == true
-                                ? "Left"
-                                : _selectedPStartingPosition[1] == true
-                                    ? "Center"
-                                    : _selectedPStartingPosition[2] == true
-                                        ? "Right"
-                                        : "";
+                        _selectedStartingPosition[i] = i == index;
                       }
+                      widget.data.position =
+                          _selectedStartingPosition.indexOf(true);
                     });
                   },
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -132,7 +125,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                     minHeight: 50.0,
                     minWidth: 80.0,
                   ),
-                  isSelected: _selectedPStartingPosition,
+                  isSelected: _selectedStartingPosition,
                   children: starting_poses,
                 ),
               ),
@@ -149,17 +142,9 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                         i < _selectedPreloadedGamepiece.length;
                         i++) {
                       _selectedPreloadedGamepiece[i] = i == index;
-                      // TODO: fix this weird code, it works but is weird
-                      widget.data.preload =
-                          _selectedPreloadedGamepiece[0] == true
-                              ? "None"
-                              : _selectedPreloadedGamepiece[1] == true
-                                  ? "Cone"
-                                  : _selectedPreloadedGamepiece[2] == true
-                                      ? "Cube"
-                                      : "";
-                      print(widget.data.preload);
                     }
+                    widget.data.preload =
+                        _selectedPreloadedGamepiece.indexOf(true);
                   });
                 },
                 borderRadius: const BorderRadius.all(Radius.circular(8)),

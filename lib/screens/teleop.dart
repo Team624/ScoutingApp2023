@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/widgets/Counter.dart';
-import '../widgets/grid/BottomNode.dart';
-import '../widgets/grid/Cone.dart';
-import '../widgets/grid/Cube.dart';
+import 'package:scouting_app_2023/widgets/grid/BottomNode.dart';
+import 'package:scouting_app_2023/widgets/grid/Cone.dart';
+import 'package:scouting_app_2023/widgets/grid/Cube.dart';
 
 class Teleop extends StatefulWidget {
   Performance data;
@@ -160,7 +160,7 @@ class _TeleopState extends State<Teleop> {
                   child: BottomNode(
                     onChanged: (gamepiece) {
                       print(gamepiece);
-                      data.teleop_hybrid_L1 = gamepiece % 5;
+                      data.teleop_hybrid_L1 = gamepiece;
                     },
                     hideFailed: true,
                   ),
@@ -179,7 +179,7 @@ class _TeleopState extends State<Teleop> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.teleop_hybrid_L3 = gamepiece % 5;
+                      data.teleop_hybrid_L3 = gamepiece;
                     },
                     hideFailed: true,
                   ),
@@ -193,7 +193,7 @@ class _TeleopState extends State<Teleop> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.teleop_hybrid_L4 = gamepiece % 5;
+                      data.teleop_hybrid_L4 = gamepiece;
                     },
                     hideFailed: true,
                   ),
@@ -212,7 +212,7 @@ class _TeleopState extends State<Teleop> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.teleop_hybrid_L6 = gamepiece % 5;
+                      data.teleop_hybrid_L6 = gamepiece;
                     },
                     hideFailed: true,
                   ),
@@ -227,7 +227,7 @@ class _TeleopState extends State<Teleop> {
                   height: 113,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.teleop_hybrid_L7 = gamepiece % 5;
+                      data.teleop_hybrid_L7 = gamepiece;
                     },
                     hideFailed: true,
                   ),
@@ -247,7 +247,7 @@ class _TeleopState extends State<Teleop> {
                   height: 113,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      data.teleop_hybrid_L9 = gamepiece % 5;
+                      data.teleop_hybrid_L9 = gamepiece;
                     },
                     hideFailed: true,
                   ),
