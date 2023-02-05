@@ -3,6 +3,7 @@ import 'package:scouting_app_2023/database/database.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/utils/pretty_qr_code.dart';
 import 'package:scouting_app_2023/screens/BottomNavBar.dart';
+import 'dataview.dart';
 
 class DisplayQRcode extends StatefulWidget {
   Performance data;
@@ -30,6 +31,16 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
               fontSize: 35,
             ),
           ),
+          leading: IconButton(
+            icon: Image.asset(
+              'assets/624logo.png',
+              height: 30,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => DataView()));
+            },
+          ),
           backgroundColor: Color.fromARGB(255, 0, 244, 0),
         ),
       ),
@@ -42,21 +53,27 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
               errorCorrectLevel: QrErrorCorrectLevel.M,
               roundEdges: true),
           Spacer(),
-          TextButton(
-            child: Text("DONE"),
-            onPressed: () async {
-              await insertPerformance(data);
-              print(await viewDB());
-              print(await data.toMap());
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => BottomNavBar(
-                          currentIndex: 0,
-                          data: Performance.next(data.initials, data.match + 1),
-                        )),
-              );
-            },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TextButton(
+                child: Text("DONE"),
+                onPressed: () async {
+                  await insertPerformance(data);
+                  print(await viewDB());
+                  print(await data.toMap());
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BottomNavBar(
+                              currentIndex: 0,
+                              data: Performance.next(
+                                  data.initials, data.match + 1),
+                            )),
+                  );
+                },
+              )
+            ],
           )
         ]),
       ),

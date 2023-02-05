@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scouting_app_2023/screens/dataview.dart';
 import 'package:scouting_app_2023/widgets/checkbox.dart';
 import 'package:scouting_app_2023/widgets/grid/Cone.dart';
 import 'package:scouting_app_2023/widgets/grid/Cube.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/widgets/grid/BottomNode.dart';
-import 'package:scouting_app_2023/screens/dataview.dart';
 
 class AutonPage extends StatefulWidget {
   Performance data;
@@ -277,13 +275,7 @@ class _AutonPageState extends State<AutonPage> {
                     ),
                   ),
                 ],
-              ),
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => DataView()));
-                  },
-                  child: Text("test"))
+              )
             ],
           )
         ],

@@ -202,7 +202,7 @@ Future<String?> lastPerformance() async {
   return allPerformances[allPerformances.length - 1].toString();
 }
 
-Future<void> deletePerformance(int match, int team) async {
+Future<void> deletePerformance(String match, String team) async {
   final db = await database;
   await db.delete(
     'performances',

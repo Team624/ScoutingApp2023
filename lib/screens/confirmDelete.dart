@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:scouting_app_2023/database/database.dart';
 
 class ConfirmDelete extends StatefulWidget {
-  List<int> indexes;
+  List<List<String>> indexes;
   ConfirmDelete(this.indexes);
 
   @override
@@ -9,7 +10,7 @@ class ConfirmDelete extends StatefulWidget {
 }
 
 class _ConfirmDeleteState extends State<ConfirmDelete> {
-  List<int> indexes;
+  List<List<String>> indexes;
   _ConfirmDeleteState(this.indexes);
 
   bool longPressed = false;
@@ -28,12 +29,6 @@ class _ConfirmDeleteState extends State<ConfirmDelete> {
                 fontSize: 35,
               ),
             ),
-            leading: IconButton(
-              icon: Image.asset(
-                'assets/624logo.png',
-              ),
-              onPressed: () {},
-            ),
             backgroundColor: Color.fromARGB(255, 255, 0, 0),
           ),
         ),
@@ -51,9 +46,11 @@ class _ConfirmDeleteState extends State<ConfirmDelete> {
                   Column(
                     children: [
                       ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (longPressed) {
-                            // teymur
+                            for (List<String> info in indexes) {
+                              deletePerformance(info[0], info[1]);
+                            }
                             Navigator.pop(context);
                           }
                         },

@@ -72,6 +72,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
+    - assets/624logo.png
     - assets/cone.svg
     - assets/coneEmpty.svg
     - assets/cube.svg

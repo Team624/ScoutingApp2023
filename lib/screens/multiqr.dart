@@ -48,12 +48,6 @@ class _MultiQrCodeState extends State<MultiQrCode> {
               fontSize: 35,
             ),
           ),
-          leading: IconButton(
-            icon: Image.asset(
-              'assets/624logo.png',
-            ),
-            onPressed: () {},
-          ),
           backgroundColor: Color.fromARGB(255, 65, 192, 69),
         ),
       ),

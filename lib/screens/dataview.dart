@@ -26,12 +26,6 @@ class _DataViewState extends State<DataView> {
                 fontSize: 35,
               ),
             ),
-            leading: IconButton(
-              icon: Image.asset(
-                'assets/624logo.png',
-              ),
-              onPressed: () {},
-            ),
             backgroundColor: Color.fromARGB(255, 65, 192, 69),
           ),
         ),
@@ -105,12 +99,21 @@ class _DataViewState extends State<DataView> {
                                     }
                                   }
 
-                                  // CsvUtil.removeMatches(indexes);
+                                  List<List<String>> delete_items = [];
+                                  for (int i = 0; i < allData.length; i++) {
+                                    if (_selected[i]) {
+                                      delete_items.add([
+                                        allData[i].match.toString(),
+                                        allData[i].team.toString()
+                                      ]);
+                                    }
+                                  }
+
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            ConfirmDelete(indexes)),
+                                            ConfirmDelete(delete_items)),
                                   );
                                   ;
                                 },
