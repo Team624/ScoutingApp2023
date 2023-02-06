@@ -60,8 +60,6 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
                 child: Text("DONE"),
                 onPressed: () async {
                   await insertPerformance(data);
-                  print(await viewDB());
-                  print(await data.toMap());
                   Navigator.push(
                     context,
                     MaterialPageRoute(

@@ -69,7 +69,7 @@ class Performance implements Comparable<Performance> {
   int teleop_cone_H7 = 0;
   int teleop_cube_H8 = 0;
   int teleop_cone_H9 = 0;
-  int cycles = 0;
+  int fumbles = 0;
   int fouls_committed = 0;
 
   // Endgame
@@ -146,7 +146,7 @@ class Performance implements Comparable<Performance> {
       required this.teleop_cone_H7,
       required this.teleop_cube_H8,
       required this.teleop_cone_H9,
-      required this.cycles,
+      required this.fumbles,
       required this.fouls_committed,
       required this.charging_station_time,
       required this.charge_endgame,
@@ -216,7 +216,7 @@ class Performance implements Comparable<Performance> {
       "teleop_cone_H7": teleop_cone_H7,
       "teleop_cube_H8": teleop_cube_H8,
       "teleop_cone_H9": teleop_cone_H9,
-      "cycles": cycles,
+      "fumbles": fumbles,
       "fouls_committed": fouls_committed,
       "charging_station_time": charging_station_time,
       "charge_endgame": charge_endgame,
@@ -298,7 +298,7 @@ class Performance implements Comparable<Performance> {
       convertBaseAto32(first, 5),
       convertBaseAto32(second, 3),
       convertBaseAto32(third, 2),
-      cycles,
+      fumbles,
       fouls_committed,
       charging_station_time,
       charge_endgame,

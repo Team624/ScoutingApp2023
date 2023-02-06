@@ -25,6 +25,10 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
 
   final List<bool> _selectedPreloadedGamepiece = <bool>[true, false, false];
   final List<bool> _selectedStartingPosition = <bool>[false, true, false];
+
+  List<String> teams = ["624"];
+  TextEditingController matchController = TextEditingController();
+  String teamController = "";
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -41,13 +45,12 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                     onChanged: (newText) {
                       try {
                         widget.data.match = int.parse(newText);
-                      } catch (e) {
-                        widget.data.match = 0;
-                        //piss
-                      }
+                      } catch (e) {}
                     },
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     keyboardType: TextInputType.number,
+                    controller: TextEditingController(
+                        text: widget.data.team.toString()),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Match #',
@@ -59,20 +62,35 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextField(
-                      onChanged: (newText) {
-                        try {
-                          widget.data.team = int.parse(newText);
-                        } catch (e) {
-                          widget.data.team = 0;
-                        }
-                      },
+                  child: Autocomplete<String>(
+                      optionsBuilder: (TextEditingValue textEditingValue) {
+                    if (textEditingValue.text == '') {
+                      return const Iterable<String>.empty();
+                    } else {
+                      teamController = textEditingValue.text;
+                      widget.data.team = int.parse(teamController);
+                    }
+                    return teams.where((String option) {
+                      return option.contains(textEditingValue.text);
+                    });
+                  }, onSelected: (String selection) {
+                    teamController = selection;
+                    widget.data.team = int.parse(teamController);
+                  }, fieldViewBuilder: (BuildContext context,
+                          TextEditingController fieldTextEditingController,
+                          FocusNode fieldFocusNode,
+                          VoidCallback onFieldSubmitted) {
+                    return TextField(
+                      controller: fieldTextEditingController,
+                      focusNode: fieldFocusNode,
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: 'Team #',
+                        labelText: 'Team #',
                       ),
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      keyboardType: TextInputType.number),
+                    );
+                  }),
                 ),
               ),
               Expanded(
@@ -80,6 +98,8 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextField(
+                    controller:
+                        TextEditingController(text: widget.data.initials),
                     onChanged: (newValue) {
                       widget.data.initials = newValue;
                     },

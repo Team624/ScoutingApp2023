@@ -30,14 +30,12 @@ class _TeleopState extends State<Teleop> {
               Cone(
                 hideFailed: true,
                 onChanged: (gamepiece) {
-                  print(gamepiece);
                   data.teleop_cone_H1 = gamepiece;
                 },
               ),
               Cube(
                 hideFailed: true,
                 onChanged: (gamepiece) {
-                  print(gamepiece);
                   data.teleop_cube_H2 = gamepiece;
                 },
               ),
@@ -159,7 +157,6 @@ class _TeleopState extends State<Teleop> {
                   width: 90,
                   child: BottomNode(
                     onChanged: (gamepiece) {
-                      print(gamepiece);
                       data.teleop_hybrid_L1 = gamepiece;
                     },
                     hideFailed: true,
@@ -259,10 +256,10 @@ class _TeleopState extends State<Teleop> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Counter(
-                  onChanged: (numCycles) {
-                    data.cycles = numCycles;
+                  onChanged: (numfumbles) {
+                    data.fumbles = numfumbles;
                   },
-                  text: "Cycles"),
+                  text: "fumbles"),
               Counter(
                   onChanged: (numFouls) {
                     data.fouls_committed = numFouls;
