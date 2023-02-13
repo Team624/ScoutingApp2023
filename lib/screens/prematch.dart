@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scouting_app_2023/database/performance.dart';
+import 'package:scouting_app_2023/utils/teams.dart';
 
 class PreMatchScreen extends StatefulWidget {
   Performance data;
@@ -26,9 +27,6 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
   final List<bool> _selectedPreloadedGamepiece = <bool>[true, false, false];
   final List<bool> _selectedStartingPosition = <bool>[false, true, false];
 
-  List<String> teams = ["624"];
-  TextEditingController matchController = TextEditingController();
-  String teamController = "";
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -50,7 +48,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     keyboardType: TextInputType.number,
                     controller: TextEditingController(
-                        text: widget.data.team.toString()),
+                        text: widget.data.match.toString()),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Match #',
@@ -60,38 +58,12 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
               ),
               Expanded(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: Autocomplete<String>(
-                      optionsBuilder: (TextEditingValue textEditingValue) {
-                    if (textEditingValue.text == '') {
-                      return const Iterable<String>.empty();
-                    } else {
-                      teamController = textEditingValue.text;
-                      widget.data.team = int.parse(teamController);
-                    }
-                    return teams.where((String option) {
-                      return option.contains(textEditingValue.text);
-                    });
-                  }, onSelected: (String selection) {
-                    teamController = selection;
-                    widget.data.team = int.parse(teamController);
-                  }, fieldViewBuilder: (BuildContext context,
-                          TextEditingController fieldTextEditingController,
-                          FocusNode fieldFocusNode,
-                          VoidCallback onFieldSubmitted) {
-                    return TextField(
-                      controller: fieldTextEditingController,
-                      focusNode: fieldFocusNode,
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Team #',
-                      ),
-                    );
-                  }),
-                ),
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: CustomTextField(
+                      data: widget.data,
+                      textEditingController: new TextEditingController(
+                          text: widget.data.team.toString()),
+                    )),
               ),
               Expanded(
                 child: Padding(
@@ -183,6 +155,50 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
           )
         ],
       ),
+    );
+  }
+}
+
+class CustomTextField extends StatefulWidget {
+  @override
+  TextEditingController textEditingController;
+  Performance data;
+  CustomTextField(
+      {super.key, required this.textEditingController, required this.data});
+  _CustomTextFieldState createState() => _CustomTextFieldState(
+      textEditingController: textEditingController, data: data);
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  TextEditingController textEditingController;
+  Performance data;
+  _CustomTextFieldState(
+      {required this.textEditingController, required this.data});
+  IconData _icon = Icons.close;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        suffixIcon: Icon(_icon),
+        border: OutlineInputBorder(),
+        hintText: 'Team #',
+      ),
+      controller: textEditingController,
+      onChanged: (text) {
+        try {
+          data.team = int.parse(text);
+        } catch (e) {}
+        setState(() {
+          if (getTeamsList().contains(data.team.toString())) {
+            _icon = Icons.check_box;
+          } else {
+            _icon = Icons.close;
+          }
+        });
+      },
     );
   }
 }

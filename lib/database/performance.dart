@@ -4,9 +4,9 @@ import 'package:scouting_app_2023/utils/baseConverter.dart';
 
 class Performance implements Comparable<Performance> {
   //Pre Match
-  String initials = "N/A";
+  String initials = "";
   int match = 1;
-  int team = 0;
+  int team = 1;
 
   // Auton
   int position = 0;
