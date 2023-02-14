@@ -3,6 +3,7 @@ import 'package:scouting_app_2023/database/database.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/utils/pretty_qr_code.dart';
 import 'package:scouting_app_2023/screens/BottomNavBar.dart';
+import 'package:scouting_app_2023/utils/teams.dart';
 import 'dataview.dart';
 
 class DisplayQRcode extends StatefulWidget {
@@ -57,22 +58,65 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextButton(
-                child: Text("DONE"),
                 onPressed: () async {
                   await insertPerformance(data);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => BottomNavBar(
-                              currentIndex: 0,
-                              data: Performance.next(
-                                  data.initials, data.match + 1),
-                            )),
-                  );
+                  if (data.initials.toString().length == 2 &&
+                      data.team.toString() != "1") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BottomNavBar(
+                                currentIndex: 0,
+                                data: Performance.next(
+                                  data.initials,
+                                  data.match + 1,
+                                ),
+                              )),
+                    );
+                  } else if (data.initials.toString().length != 2) {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: Text("Scouter Initials Not Properly Defined"),
+                        content: Text(
+                          "Go back to prematch",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    );
+                  } else if (data.team.toString() == "1") {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: Text("Invalid Team Number"),
+                        content: Text(
+                          "Go back to prematch",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    );
+                  }
                 },
-              )
+                style: TextButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 40, 60),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 38, horizontal: 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Text(
+                  "DONE",
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              ),
             ],
-          )
+          ),
+          Spacer()
         ]),
       ),
     );

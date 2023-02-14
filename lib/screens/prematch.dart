@@ -45,7 +45,10 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                         widget.data.match = int.parse(newText);
                       } catch (e) {}
                     },
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(2),
+                    ],
                     keyboardType: TextInputType.number,
                     controller: TextEditingController(
                         text: widget.data.match.toString()),
@@ -179,7 +182,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      inputFormatters: [
+        FilteringTextInputFormatter.digitsOnly,
+        LengthLimitingTextInputFormatter(4)
+      ],
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         suffixIcon: Icon(_icon),
