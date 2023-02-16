@@ -46,7 +46,8 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
         ),
       ),
       body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Spacer(),
           PrettyQr(
               size: MediaQuery.of(context).size.height * 0.6,
@@ -100,7 +101,7 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 40, 60),
                   padding:
-                      const EdgeInsets.symmetric(vertical: 38, horizontal: 50),
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
