@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/database/database.dart';
-import 'package:scouting_app_2023/database/performance.dart';
+import 'package:scouting_app_2023/database/entry.dart';
 import 'package:scouting_app_2023/screens/multiqr.dart';
 
 import 'confirmDelete.dart';
@@ -35,7 +35,7 @@ class _DataViewState extends State<DataView> {
                 return Text(
                     "Could not get data :(\n" + snapshot.error.toString());
               } else if (snapshot.hasData) {
-                List<Performance> allData = snapshot.data;
+                List<Entry> allData = snapshot.data;
 
                 // No data to be displayed
                 if (allData.length == 0) {
@@ -140,10 +140,10 @@ class _DataViewState extends State<DataView> {
               }
               return Text("Loading data...");
             },
-            future: performance()));
+            future: entry()));
   }
 
-  DataRow createMatchRow(Performance data, int index) {
+  DataRow createMatchRow(Entry data, int index) {
     return DataRow(
         cells: [
           DataCell(

@@ -61,42 +61,17 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
               TextButton(
                 onPressed: () async {
                   await insertPerformance(data);
-                  if (data.initials.toString().length == 2 &&
-                      data.team.toString() != "1") {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => BottomNavBar(
-                                currentIndex: 0,
-                                data: Performance.next(
-                                  data.initials,
-                                  data.match + 1,
-                                ),
-                              )),
-                    );
-                  } else if (data.initials.toString().length != 2) {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: Text("Scouter Initials Not Properly Defined"),
-                        content: Text(
-                          "Go back to prematch",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    );
-                  } else if (data.team.toString() == "1") {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: Text("Invalid Team Number"),
-                        content: Text(
-                          "Go back to prematch",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    );
-                  }
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BottomNavBar(
+                              currentIndex: 0,
+                              data: Performance.next(
+                                data.initials,
+                                data.match + 1,
+                              ),
+                            )),
+                  );
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 40, 60),

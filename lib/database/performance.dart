@@ -1,8 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:scouting_app_2023/utils/baseConverter.dart';
+import 'entry.dart';
 
-class Performance implements Comparable<Performance> {
+class Performance {
   //Pre Match
   String initials = "";
   int match = 1;
@@ -73,7 +74,6 @@ class Performance implements Comparable<Performance> {
   int fouls_committed = 0;
 
   // Endgame
-  int charging_station_time = 0;
   int charge_endgame = 0;
   bool triple_balance = false;
   bool disconnect = false;
@@ -148,82 +148,9 @@ class Performance implements Comparable<Performance> {
       required this.teleop_cone_H9,
       required this.fumbles,
       required this.fouls_committed,
-      required this.charging_station_time,
       required this.charge_endgame,
       required this.triple_balance,
       required this.disconnect});
-
-  Map<String, dynamic> toMap() {
-    return {
-      "initials": initials,
-      "match": match,
-      "team": team,
-      "position": position,
-      "preload": preload,
-      "move": toInteger(move),
-      "auto_hybrid_L1": auto_hybrid_L1,
-      "auto_hybrid_L2": auto_hybrid_L2,
-      "auto_hybrid_L3": auto_hybrid_L3,
-      "auto_hybrid_L4": auto_hybrid_L4,
-      "auto_hybrid_L5": auto_hybrid_L5,
-      "auto_hybrid_L6": auto_hybrid_L6,
-      "auto_hybrid_L7": auto_hybrid_L7,
-      "auto_hybrid_L8": auto_hybrid_L8,
-      "auto_hybrid_L9": auto_hybrid_L9,
-      "auto_cone_M1": auto_cone_M1,
-      "auto_cube_M2": auto_cube_M2,
-      "auto_cone_M3": auto_cone_M3,
-      "auto_cone_M4": auto_cone_M4,
-      "auto_cube_M5": auto_cube_M5,
-      "auto_cone_M6": auto_cone_M6,
-      "auto_cone_M7": auto_cone_M7,
-      "auto_cube_M8": auto_cube_M8,
-      "auto_cone_M9": auto_cone_M9,
-      "auto_cone_H1": auto_cone_H1,
-      "auto_cube_H2": auto_cube_H2,
-      "auto_cone_H3": auto_cone_H3,
-      "auto_cone_H4": auto_cone_H4,
-      "auto_cube_H5": auto_cube_H5,
-      "auto_cone_H6": auto_cone_H6,
-      "auto_cone_H7": auto_cone_H7,
-      "auto_cube_H8": auto_cube_H8,
-      "auto_cone_H9": auto_cone_H9,
-      "auto_charge": auto_charge,
-      "teleop_hybrid_L1": teleop_hybrid_L1,
-      "teleop_hybrid_L2": teleop_hybrid_L2,
-      "teleop_hybrid_L3": teleop_hybrid_L3,
-      "teleop_hybrid_L4": teleop_hybrid_L4,
-      "teleop_hybrid_L5": teleop_hybrid_L5,
-      "teleop_hybrid_L6": teleop_hybrid_L6,
-      "teleop_hybrid_L7": teleop_hybrid_L7,
-      "teleop_hybrid_L8": teleop_hybrid_L8,
-      "teleop_hybrid_L9": teleop_hybrid_L9,
-      "teleop_cone_M1": teleop_cone_M1,
-      "teleop_cube_M2": teleop_cube_M2,
-      "teleop_cone_M3": teleop_cone_M3,
-      "teleop_cone_M4": teleop_cone_M4,
-      "teleop_cube_M5": teleop_cube_M5,
-      "teleop_cone_M6": teleop_cone_M6,
-      "teleop_cone_M7": teleop_cone_M7,
-      "teleop_cube_M8": teleop_cube_M8,
-      "teleop_cone_M9": teleop_cone_M9,
-      "teleop_cone_H1": teleop_cone_H1,
-      "teleop_cube_H2": teleop_cube_H2,
-      "teleop_cone_H3": teleop_cone_H3,
-      "teleop_cone_H4": teleop_cone_H4,
-      "teleop_cube_H5": teleop_cube_H5,
-      "teleop_cone_H6": teleop_cone_H6,
-      "teleop_cone_H7": teleop_cone_H7,
-      "teleop_cube_H8": teleop_cube_H8,
-      "teleop_cone_H9": teleop_cone_H9,
-      "fumbles": fumbles,
-      "fouls_committed": fouls_committed,
-      "charging_station_time": charging_station_time,
-      "charge_endgame": charge_endgame,
-      "triple_balance": toInteger(triple_balance),
-      "disconnect": toInteger(disconnect)
-    };
-  }
 
   @override
   String toString() {
@@ -300,7 +227,6 @@ class Performance implements Comparable<Performance> {
       convertBaseAto32(third, 2),
       fumbles,
       fouls_committed,
-      charging_station_time,
       charge_endgame,
       toInteger(triple_balance),
       toInteger(disconnect)
@@ -320,17 +246,11 @@ class Performance implements Comparable<Performance> {
     }
   }
 
-  @override
-  int compareTo(Performance other) {
-    if (other.match > match) {
-      return -1;
-    } else if (other.match < match) {
-      return 1;
-    }
-    return 0;
-  }
-
   int shortenString(String string, List options) {
     return options.indexOf(string);
+  }
+
+  Entry toEntry() {
+    return Entry(this.match, this.team, toString());
   }
 }

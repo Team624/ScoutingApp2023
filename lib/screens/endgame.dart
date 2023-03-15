@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/database/performance.dart';
 import 'package:scouting_app_2023/widgets/checkbox.dart';
-import 'package:scouting_app_2023/widgets/timer.dart';
 
 class EndGameScreen extends StatefulWidget {
   Performance data;
@@ -26,7 +25,6 @@ class _EndGameScreenState extends State<EndGameScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ChargeTimer(data: widget.data),
           Container(height: MediaQuery.of(context).size.height / 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
