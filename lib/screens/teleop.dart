@@ -259,7 +259,7 @@ class _TeleopState extends State<Teleop> {
                   onChanged: (numfumbles) {
                     data.fumbles = numfumbles;
                   },
-                  text: "fumbles"),
+                  text: "Fumbles"),
               Counter(
                   onChanged: (numFouls) {
                     data.fouls_committed = numFouls;
