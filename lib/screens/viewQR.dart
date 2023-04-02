@@ -49,11 +49,16 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Spacer(),
-          PrettyQr(
-              size: MediaQuery.of(context).size.height * 0.6,
-              data: data.toString(),
-              errorCorrectLevel: QrErrorCorrectLevel.M,
-              roundEdges: true),
+          getTeamsList().contains(data.team.toString())
+              ? PrettyQr(
+                  size: MediaQuery.of(context).size.height * 0.6,
+                  data: data.toString(),
+                  errorCorrectLevel: QrErrorCorrectLevel.M,
+                  roundEdges: true)
+              : Image.asset(
+                  'assets/who_let_bro_cook.jpg',
+                  height: MediaQuery.of(context).size.height * 0.6,
+                ),
           Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

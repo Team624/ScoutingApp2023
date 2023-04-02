@@ -80,6 +80,7 @@ flutter:
     - assets/nothing.svg
     - assets/failedCone.svg
     - assets/failedCube.svg
+    - assets/who_let_bro_cook.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
