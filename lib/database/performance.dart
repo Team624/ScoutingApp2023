@@ -70,7 +70,7 @@ class Performance {
   int teleop_cone_H7 = 0;
   int teleop_cube_H8 = 0;
   int teleop_cone_H9 = 0;
-  int fumbles = 0;
+  int drops = 0;
   int fouls_committed = 0;
 
   // Endgame
@@ -146,7 +146,7 @@ class Performance {
       required this.teleop_cone_H7,
       required this.teleop_cube_H8,
       required this.teleop_cone_H9,
-      required this.fumbles,
+      required this.drops,
       required this.fouls_committed,
       required this.charge_endgame,
       required this.triple_balance,
@@ -225,7 +225,7 @@ class Performance {
       convertBaseAto32(first, 5),
       convertBaseAto32(second, 3),
       convertBaseAto32(third, 2),
-      fumbles,
+      drops,
       fouls_committed,
       charge_endgame,
       toInteger(triple_balance),

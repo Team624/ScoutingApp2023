@@ -13,9 +13,9 @@ class PreMatchScreen extends StatefulWidget {
 
 class _PreMatchScreenState extends State<PreMatchScreen> {
   final List<Widget> starting_poses = <Widget>[
-    Text('Left'),
+    Text('Bump'),
     Text('Center'),
-    Text('Right')
+    Text('No Bump')
   ];
 
   final List<Widget> preloadables = <Widget>[

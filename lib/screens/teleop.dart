@@ -256,10 +256,10 @@ class _TeleopState extends State<Teleop> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Counter(
-                  onChanged: (numfumbles) {
-                    data.fumbles = numfumbles;
+                  onChanged: (numdrops) {
+                    data.drops = numdrops;
                   },
-                  text: "Fumbles"),
+                  text: "Drops"),
               Counter(
                   onChanged: (numFouls) {
                     data.fouls_committed = numFouls;

@@ -26,12 +26,17 @@ class _EndGameScreenState extends State<EndGameScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(height: MediaQuery.of(context).size.height / 10),
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Charger State: "),
+              Text(
+                "Charging Station",
+                style: TextStyle(fontSize: 25),
+              ),
+              Container(height: MediaQuery.of(context).size.height / 20),
               Container(
-                width: MediaQuery.of(context).size.width / 3,
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width / 1.5,
                 child: ToggleButtons(
                   direction: Axis.horizontal,
                   onPressed: (int index) {
@@ -50,8 +55,8 @@ class _EndGameScreenState extends State<EndGameScreen> {
                   fillColor: Color.fromARGB(255, 65, 192, 69),
                   color: Color.fromARGB(255, 65, 192, 69),
                   constraints: const BoxConstraints(
-                    minHeight: 50.0,
-                    minWidth: 80.0,
+                    minHeight: 80.0,
+                    minWidth: 120.0,
                   ),
                   isSelected: _selectedChargeEndgame,
                   children: charge_endgame_options,
