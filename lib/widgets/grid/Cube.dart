@@ -19,6 +19,8 @@ class _CubeState extends State<Cube> {
       semanticsLabel: 'Deactivated cube Node', width: 85, height: 90);
   Widget failed_cube = SvgPicture.asset('assets/failedCube.svg',
       semanticsLabel: 'Failed cube Node', width: 90, height: 90);
+  Widget supercharged = SvgPicture.asset('assets/supercharged.svg',
+      semanticsLabel: 'Supercharged Bottom Node', width: 90, height: 113);
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +29,15 @@ class _CubeState extends State<Cube> {
             ? deactivated_cube
             : state == 1
                 ? activated_cube
-                : widget.hideFailed
-                    ? deactivated_cube
+                : state == 2
+                    ? widget.hideFailed
+                        ? supercharged
+                        : failed_cube
                     : failed_cube,
         onTap: () {
           setState(() {
             if (widget.hideFailed) {
-              state = (state + 1) % 2;
+              state = (state + 1) % 3;
             } else {
               state = (state + 1) % 3;
             }

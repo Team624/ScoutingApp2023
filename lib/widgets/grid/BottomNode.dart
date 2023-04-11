@@ -21,6 +21,8 @@ class _BottomNodeState extends State<BottomNode> {
       semanticsLabel: 'Failed cube Node', width: 90, height: 90);
   Widget failed_cone = SvgPicture.asset('assets/failedCone.svg',
       semanticsLabel: 'Failed cone Node', width: 90, height: 113);
+  Widget supercharged = SvgPicture.asset('assets/supercharged.svg',
+      semanticsLabel: 'Supercharged Bottom Node', width: 90, height: 113);
   Widget nothing = SvgPicture.asset('assets/nothing.svg',
       semanticsLabel: 'Nothing', width: 90, height: 90);
 
@@ -33,15 +35,15 @@ class _BottomNodeState extends State<BottomNode> {
                 ? activated_cube
                 : gamepiece == 2
                     ? activated_cone
-                    : widget.hideFailed
-                        ? nothing
-                        : gamepiece == 3
-                            ? failed_cube
-                            : failed_cone,
+                    : gamepiece == 3
+                        ? widget.hideFailed
+                            ? supercharged
+                            : failed_cube
+                        : failed_cone,
         onTap: () {
           setState(() {
             if (widget.hideFailed) {
-              gamepiece = (gamepiece + 1) % 3;
+              gamepiece = (gamepiece + 1) % 4;
             } else {
               gamepiece = (gamepiece + 1) % 5;
             }
