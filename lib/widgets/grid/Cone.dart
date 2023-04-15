@@ -17,10 +17,10 @@ class _ConeState extends State<Cone> {
       semanticsLabel: 'Activated Cone Node', width: 90, height: 113);
   Widget deactivated_cone = SvgPicture.asset('assets/coneEmpty.svg',
       semanticsLabel: 'Deactivated Cone Node', width: 90, height: 113);
+  Widget supercharged = SvgPicture.asset('assets/cone2.svg',
+      semanticsLabel: 'Supercharged Cone', width: 90, height: 113);
   Widget failed_cone = SvgPicture.asset('assets/failedCone.svg',
       semanticsLabel: 'Failed cone Node', width: 90, height: 113);
-  Widget supercharged = SvgPicture.asset('assets/supercharged.svg',
-      semanticsLabel: 'Supercharged Bottom Node', width: 90, height: 113);
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +29,14 @@ class _ConeState extends State<Cone> {
             ? deactivated_cone
             : state == 1
                 ? activated_cone
-                : state == 2
-                    ? widget.hideFailed
-                        ? supercharged
-                        : failed_cone
-                    : failed_cone,
+                : state == 2 && widget.hideFailed
+                    ? supercharged
+                    : state == 2 && !widget.hideFailed
+                        ? failed_cone
+                        : deactivated_cone,
         onTap: () {
           setState(() {
-            if (widget.hideFailed) {
-              state = (state + 1) % 3;
-            } else {
-              state = (state + 1) % 3;
-            }
+            state = (state + 1) % 3;
             widget.onChanged(state);
           });
         });

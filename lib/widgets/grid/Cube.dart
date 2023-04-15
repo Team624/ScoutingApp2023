@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,10 +19,10 @@ class _CubeState extends State<Cube> {
       semanticsLabel: 'Activated cube Node', width: 90, height: 90);
   Widget deactivated_cube = SvgPicture.asset('assets/cubeEmpty.svg',
       semanticsLabel: 'Deactivated cube Node', width: 85, height: 90);
+  Widget supercharged = SvgPicture.asset('assets/cube2.svg',
+      semanticsLabel: 'Supercharged Bottom Node', width: 90, height: 90);
   Widget failed_cube = SvgPicture.asset('assets/failedCube.svg',
       semanticsLabel: 'Failed cube Node', width: 90, height: 90);
-  Widget supercharged = SvgPicture.asset('assets/supercharged.svg',
-      semanticsLabel: 'Supercharged Bottom Node', width: 90, height: 113);
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +31,14 @@ class _CubeState extends State<Cube> {
             ? deactivated_cube
             : state == 1
                 ? activated_cube
-                : state == 2
-                    ? widget.hideFailed
-                        ? supercharged
-                        : failed_cube
-                    : failed_cube,
+                : state == 2 && widget.hideFailed
+                    ? supercharged
+                    : state == 2 && !widget.hideFailed
+                        ? failed_cube
+                        : deactivated_cube,
         onTap: () {
           setState(() {
-            if (widget.hideFailed) {
-              state = (state + 1) % 3;
-            } else {
-              state = (state + 1) % 3;
-            }
+            state = (state + 1) % 3;
             widget.onChanged(state);
           });
         });

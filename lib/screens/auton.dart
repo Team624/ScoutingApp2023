@@ -3,7 +3,7 @@ import 'package:scouting_app_2023/widgets/checkbox.dart';
 import 'package:scouting_app_2023/widgets/grid/Cone.dart';
 import 'package:scouting_app_2023/widgets/grid/Cube.dart';
 import 'package:scouting_app_2023/database/performance.dart';
-import 'package:scouting_app_2023/widgets/grid/BottomNode.dart';
+import 'package:scouting_app_2023/widgets/grid/AutonBottomNode.dart';
 
 class AutonPage extends StatefulWidget {
   Performance data;
@@ -143,7 +143,7 @@ class _AutonPageState extends State<AutonPage> {
               children: [
                 SizedBox(
                   width: 90,
-                  child: BottomNode(
+                  child: AutonBottomNode(
                     onChanged: (gamepiece) {
                       data.auto_hybrid_L1 = gamepiece;
                     },
@@ -153,14 +153,14 @@ class _AutonPageState extends State<AutonPage> {
                     height: 113,
                     child: Container(
                         width: 90,
-                        child: BottomNode(
+                        child: AutonBottomNode(
                           onChanged: (gamepiece) {
                             data.auto_hybrid_L2 = gamepiece;
                           },
                         ))),
                 SizedBox(
                   width: 90,
-                  child: BottomNode(
+                  child: AutonBottomNode(
                     onChanged: (gamepiece) {
                       data.auto_hybrid_L3 = gamepiece;
                     },
@@ -173,7 +173,7 @@ class _AutonPageState extends State<AutonPage> {
               children: [
                 SizedBox(
                   width: 90,
-                  child: BottomNode(
+                  child: AutonBottomNode(
                     onChanged: (gamepiece) {
                       data.auto_hybrid_L4 = gamepiece;
                     },
@@ -183,14 +183,14 @@ class _AutonPageState extends State<AutonPage> {
                     height: 113,
                     child: Container(
                         width: 90,
-                        child: BottomNode(
+                        child: AutonBottomNode(
                           onChanged: (gamepiece) {
                             data.auto_hybrid_L5 = gamepiece;
                           },
                         ))),
                 SizedBox(
                   width: 90,
-                  child: BottomNode(
+                  child: AutonBottomNode(
                     onChanged: (gamepiece) {
                       data.auto_hybrid_L6 = gamepiece;
                     },
@@ -204,7 +204,7 @@ class _AutonPageState extends State<AutonPage> {
                 SizedBox(
                   width: 90,
                   height: 113,
-                  child: BottomNode(
+                  child: AutonBottomNode(
                     onChanged: (gamepiece) {
                       data.auto_hybrid_L7 = gamepiece;
                     },
@@ -214,7 +214,7 @@ class _AutonPageState extends State<AutonPage> {
                     child: Container(
                         height: 113,
                         width: 90,
-                        child: BottomNode(
+                        child: AutonBottomNode(
                           onChanged: (gamepiece) {
                             data.auto_hybrid_L8 = gamepiece;
                           },
@@ -222,7 +222,7 @@ class _AutonPageState extends State<AutonPage> {
                 SizedBox(
                   width: 90,
                   height: 113,
-                  child: BottomNode(
+                  child: AutonBottomNode(
                     onChanged: (gamepiece) {
                       data.auto_hybrid_L9 = gamepiece;
                     },

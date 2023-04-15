@@ -154,7 +154,7 @@ class Performance {
 
   @override
   String toString() {
-    List<int> first = [
+    List<int> auton_hybrids = [
       auto_hybrid_L1,
       auto_hybrid_L2,
       auto_hybrid_L3,
@@ -165,7 +165,7 @@ class Performance {
       auto_hybrid_L8,
       auto_hybrid_L9
     ];
-    List<int> second = [
+    List<int> auton_mid_and_high = [
       auto_cone_M1,
       auto_cube_M2,
       auto_cone_M3,
@@ -183,7 +183,9 @@ class Performance {
       auto_cone_H6,
       auto_cone_H7,
       auto_cube_H8,
-      auto_cone_H9,
+      auto_cone_H9
+    ];
+    List<int> teleop_hybrids = [
       teleop_hybrid_L1,
       teleop_hybrid_L2,
       teleop_hybrid_L3,
@@ -194,7 +196,7 @@ class Performance {
       teleop_hybrid_L8,
       teleop_hybrid_L9
     ];
-    List<int> third = [
+    List<int> teleop_mid_and_high = [
       teleop_cone_M1,
       teleop_cube_M2,
       teleop_cone_M3,
@@ -222,9 +224,10 @@ class Performance {
       preload,
       toInteger(move),
       auto_charge,
-      convertBaseAto32(first, 5),
-      convertBaseAto32(second, 3),
-      convertBaseAto32(third, 2),
+      convertBaseAto32(auton_hybrids, 8),
+      convertBaseAto32(auton_mid_and_high, 4),
+      convertBaseAto32(teleop_hybrids, 6),
+      convertBaseAto32(teleop_mid_and_high, 3),
       drops,
       fouls_committed,
       charge_endgame,
