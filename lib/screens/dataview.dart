@@ -36,7 +36,7 @@ class _DataViewState extends State<DataView> {
                     "Could not get data :(\n" + snapshot.error.toString());
               } else if (snapshot.hasData) {
                 List<Entry> allData = snapshot.data;
-
+                allData.sort();
                 // No data to be displayed
                 if (allData.length == 0) {
                   return Center(
