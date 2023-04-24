@@ -47,7 +47,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                     },
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
-                      LengthLimitingTextInputFormatter(2),
+                      LengthLimitingTextInputFormatter(3),
                     ],
                     keyboardType: TextInputType.number,
                     controller: TextEditingController(
