@@ -64,7 +64,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                     child: CustomTextField(
                       data: widget.data,
-                      textEditingController: new TextEditingController(
+                      textEditingController: TextEditingController(
                           text: widget.data.team.toString()),
                     )),
               ),
@@ -95,13 +95,12 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Starting Position:  "),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width / 4,
                 child: ToggleButtons(
                   direction: Axis.horizontal,
                   onPressed: (int index) {
                     setState(() {
-                      // The button that is tapped is set to true, and the others to false.
                       for (int i = 0;
                           i < _selectedStartingPosition.length;
                           i++) {
@@ -125,7 +124,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                 ),
               ),
               Container(
-                width: MediaQuery.of(context).size.width / 6,
+                width: MediaQuery.of(context).size.width / 8,
               ),
               Text("Preload:       "),
               ToggleButtons(
@@ -149,7 +148,7 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
                 color: Color.fromARGB(255, 65, 192, 69),
                 constraints: const BoxConstraints(
                   minHeight: 50.0,
-                  minWidth: 80.0,
+                  minWidth: 70.0,
                 ),
                 isSelected: _selectedPreloadedGamepiece,
                 children: preloadables,
@@ -163,11 +162,11 @@ class _PreMatchScreenState extends State<PreMatchScreen> {
 }
 
 class CustomTextField extends StatefulWidget {
-  @override
   TextEditingController textEditingController;
   Performance data;
   CustomTextField(
       {super.key, required this.textEditingController, required this.data});
+  @override
   _CustomTextFieldState createState() => _CustomTextFieldState(
       textEditingController: textEditingController, data: data);
 }

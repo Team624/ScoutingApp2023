@@ -32,13 +32,11 @@ class _DataViewState extends State<DataView> {
         body: FutureBuilder(
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               if (snapshot.hasError) {
-                return Text(
-                    "Could not get data :(\n" + snapshot.error.toString());
+                return Text("Could not get data :(\n${snapshot.error}");
               } else if (snapshot.hasData) {
                 List<Entry> allData = snapshot.data;
                 allData.sort();
-                // No data to be displayed
-                if (allData.length == 0) {
+                if (allData.isEmpty) {
                   return Center(
                     child: Text("Nothing is stored!",
                         style: TextStyle(fontSize: 24)),
@@ -72,12 +70,9 @@ class _DataViewState extends State<DataView> {
 
                                   for (int i = 0; i < _selected.length; i++) {
                                     if (_selected[i]) {
-                                      csv += allData[i].toString() + "\n";
+                                      csv += "${allData[i]}\n";
                                     }
                                   }
-
-                                  if (csv.isEmpty) {}
-                                  ;
 
                                   Navigator.push(
                                     context,
@@ -115,7 +110,6 @@ class _DataViewState extends State<DataView> {
                                         builder: (context) =>
                                             ConfirmDelete(delete_items)),
                                   );
-                                  ;
                                 },
                                 icon: Icon(Icons.delete_forever)),
                           ])

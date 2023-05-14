@@ -141,92 +141,60 @@ class _AutonPageState extends State<AutonPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 90,
-                  child: AutonBottomNode(
-                    onChanged: (gamepiece) {
-                      data.auto_hybrid_L1 = gamepiece;
-                    },
-                  ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L1 = gamepiece;
+                  },
                 ),
-                SizedBox(
-                    height: 113,
-                    child: Container(
-                        width: 90,
-                        child: AutonBottomNode(
-                          onChanged: (gamepiece) {
-                            data.auto_hybrid_L2 = gamepiece;
-                          },
-                        ))),
-                SizedBox(
-                  width: 90,
-                  child: AutonBottomNode(
-                    onChanged: (gamepiece) {
-                      data.auto_hybrid_L3 = gamepiece;
-                    },
-                  ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L2 = gamepiece;
+                  },
+                ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L3 = gamepiece;
+                  },
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 90,
-                  child: AutonBottomNode(
-                    onChanged: (gamepiece) {
-                      data.auto_hybrid_L4 = gamepiece;
-                    },
-                  ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L4 = gamepiece;
+                  },
                 ),
-                SizedBox(
-                    height: 113,
-                    child: Container(
-                        width: 90,
-                        child: AutonBottomNode(
-                          onChanged: (gamepiece) {
-                            data.auto_hybrid_L5 = gamepiece;
-                          },
-                        ))),
-                SizedBox(
-                  width: 90,
-                  child: AutonBottomNode(
-                    onChanged: (gamepiece) {
-                      data.auto_hybrid_L6 = gamepiece;
-                    },
-                  ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L5 = gamepiece;
+                  },
+                ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L6 = gamepiece;
+                  },
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 90,
-                  height: 113,
-                  child: AutonBottomNode(
-                    onChanged: (gamepiece) {
-                      data.auto_hybrid_L7 = gamepiece;
-                    },
-                  ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L7 = gamepiece;
+                  },
                 ),
-                SizedBox(
-                    child: Container(
-                        height: 113,
-                        width: 90,
-                        child: AutonBottomNode(
-                          onChanged: (gamepiece) {
-                            data.auto_hybrid_L8 = gamepiece;
-                          },
-                        ))),
-                SizedBox(
-                  width: 90,
-                  height: 113,
-                  child: AutonBottomNode(
-                    onChanged: (gamepiece) {
-                      data.auto_hybrid_L9 = gamepiece;
-                    },
-                  ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L8 = gamepiece;
+                  },
+                ),
+                AutonBottomNode(
+                  onChanged: (gamepiece) {
+                    data.auto_hybrid_L9 = gamepiece;
+                  },
                 ),
               ],
             ),
@@ -246,7 +214,7 @@ class _AutonPageState extends State<AutonPage> {
                     width: MediaQuery.of(context).size.width / 4,
                   ),
                   Text("Auton charge station:  "),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width / 4,
                     child: ToggleButtons(
                       direction: Axis.horizontal,
@@ -268,7 +236,7 @@ class _AutonPageState extends State<AutonPage> {
                       color: Color.fromARGB(255, 65, 192, 69),
                       constraints: const BoxConstraints(
                         minHeight: 50.0,
-                        minWidth: 80.0,
+                        minWidth: 70.0,
                       ),
                       isSelected: _selectedChargeAuton,
                       children: charge_auto_options,

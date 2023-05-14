@@ -25,8 +25,9 @@ class _CheckBoxState extends State<CheckBox> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-              height: 50,
-              width: 50,
+              // height must equal the width
+              width: MediaQuery.of(context).size.width / 20,
+              height: MediaQuery.of(context).size.width / 20,
               color: Colors.grey[300],
               child: !isChecked
                   ? null

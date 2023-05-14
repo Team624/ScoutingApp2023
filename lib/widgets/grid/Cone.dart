@@ -13,17 +13,32 @@ class Cone extends StatefulWidget {
 class _ConeState extends State<Cone> {
   int state = 0;
 
-  Widget activated_cone = SvgPicture.asset('assets/cone.svg',
-      semanticsLabel: 'Activated Cone Node', width: 90, height: 113);
-  Widget deactivated_cone = SvgPicture.asset('assets/coneEmpty.svg',
-      semanticsLabel: 'Deactivated Cone Node', width: 90, height: 113);
-  Widget supercharged = SvgPicture.asset('assets/cone2.svg',
-      semanticsLabel: 'Supercharged Cone', width: 90, height: 113);
-  Widget failed_cone = SvgPicture.asset('assets/failedCone.svg',
-      semanticsLabel: 'Failed cone Node', width: 90, height: 113);
-
   @override
   Widget build(BuildContext context) {
+    Widget activated_cone = SvgPicture.asset(
+      'assets/cone.svg',
+      semanticsLabel: 'Activated Cone Node',
+      width: MediaQuery.of(context).size.width * 0.083,
+      height: MediaQuery.of(context).size.height * 0.188,
+    );
+    Widget deactivated_cone = SvgPicture.asset(
+      'assets/coneEmpty.svg',
+      semanticsLabel: 'Deactivated Cone Node',
+      width: MediaQuery.of(context).size.width * 0.083,
+      height: MediaQuery.of(context).size.height * 0.188,
+    );
+    Widget supercharged = SvgPicture.asset(
+      'assets/cone2.svg',
+      semanticsLabel: 'Supercharged Cone',
+      width: MediaQuery.of(context).size.width * 0.083,
+      height: MediaQuery.of(context).size.height * 0.188,
+    );
+    Widget failed_cone = SvgPicture.asset(
+      'assets/failedCone.svg',
+      semanticsLabel: 'Failed cone Node',
+      width: MediaQuery.of(context).size.width * 0.083,
+      height: MediaQuery.of(context).size.height * 0.188,
+    );
     return GestureDetector(
         child: state == 0
             ? deactivated_cone

@@ -1,5 +1,3 @@
-import 'package:scouting_app_2023/utils/baseConverter.dart';
-
 class Entry implements Comparable<Entry> {
   int match = 1;
   int team = 1;
@@ -24,6 +22,7 @@ class Entry implements Comparable<Entry> {
     return {"match": match, "team": team, "content": content};
   }
 
+  @override
   String toString() {
     return content;
   }

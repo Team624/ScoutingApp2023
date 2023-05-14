@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../utils/pretty_qr.dart';
 import '../utils/pretty_qr_code.dart';
 
 class MultiQrCode extends StatefulWidget {
@@ -30,7 +28,7 @@ class _MultiQrCodeState extends State<MultiQrCode> {
     for (int i = _currentCode * MAX_MATCHES_PER_QR;
         i < (_currentCode + 1) * MAX_MATCHES_PER_QR && i < splitData.length;
         i++) {
-      dataToScan += splitData[i] + "\n";
+      dataToScan += "${splitData[i]}\n";
     }
 
     bool isFinalCode = _currentCode ==

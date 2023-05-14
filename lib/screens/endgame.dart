@@ -23,25 +23,26 @@ class _EndGameScreenState extends State<EndGameScreen> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(height: MediaQuery.of(context).size.height / 10),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                height: 80,
+              ),
               Text(
                 "Charging Station",
                 style: TextStyle(fontSize: 25),
               ),
-              Container(height: MediaQuery.of(context).size.height / 20),
+              Container(height: 26),
               Container(
                 alignment: Alignment.center,
                 width: MediaQuery.of(context).size.width / 1.5,
+                height: MediaQuery.of(context).size.height / 5,
                 child: ToggleButtons(
                   direction: Axis.horizontal,
                   onPressed: (int index) {
                     setState(() {
-                      // The button that is tapped is set to true, and the others to false.
                       for (int i = 0; i < _selectedChargeEndgame.length; i++) {
                         _selectedChargeEndgame[i] = i == index;
                       }
@@ -64,21 +65,25 @@ class _EndGameScreenState extends State<EndGameScreen> {
               ),
             ],
           ),
-          Container(height: MediaQuery.of(context).size.height / 5),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            CheckBox(
-                text: "Lost connection",
-                onChecked: (checked) {
-                  widget.data.disconnect = checked;
-                }),
-            Container(width: MediaQuery.of(context).size.width / 4),
-            CheckBox(
-              text: "Triple Balance",
-              onChecked: (checked) {
-                widget.data.triple_balance = checked;
-              },
-            )
-          ])
+          Column(
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                CheckBox(
+                    text: "Lost connection",
+                    onChecked: (checked) {
+                      widget.data.disconnect = checked;
+                    }),
+                Container(width: MediaQuery.of(context).size.width / 4),
+                CheckBox(
+                  text: "Triple Balance",
+                  onChecked: (checked) {
+                    widget.data.triple_balance = checked;
+                  },
+                )
+              ]),
+              Container(height: 20)
+            ],
+          )
         ],
       ),
     );

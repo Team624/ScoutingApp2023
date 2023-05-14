@@ -249,11 +249,7 @@ class Performance {
     }
   }
 
-  int shortenString(String string, List options) {
-    return options.indexOf(string);
-  }
-
   Entry toEntry() {
-    return Entry(this.match, this.team, toString());
+    return Entry(match, team, toString());
   }
 }

@@ -26,7 +26,7 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
         child: AppBar(
           centerTitle: true,
           title: Text(
-            data.team.toString() + " in Match " + data.match.toString(),
+            "${data.team} in Match ${data.match}",
             style: TextStyle(
               color: Colors.black,
               fontSize: 35,
@@ -35,7 +35,7 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
           leading: IconButton(
             icon: Image.asset(
               'assets/624logo.png',
-              height: 30,
+              height: 50,
             ),
             onPressed: () {
               Navigator.push(
@@ -65,18 +65,27 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
             children: [
               TextButton(
                 onPressed: () async {
-                  await insertPerformance(data);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => BottomNavBar(
-                              currentIndex: 0,
-                              data: Performance.next(
-                                data.initials,
-                                data.match + 1,
-                              ),
-                            )),
-                  );
+                  if (getTeamsList().contains(data.team.toString())) {
+                    await insertPerformance(data);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BottomNavBar(
+                                currentIndex: 0,
+                                data: Performance.next(
+                                  data.initials,
+                                  data.match + 1,
+                                ),
+                              )),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Please enter the right team number'),
+                        duration: Duration(seconds: 3),
+                      ),
+                    );
+                  }
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 40, 60),

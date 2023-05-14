@@ -6,7 +6,7 @@ class ConfirmDelete extends StatefulWidget {
   ConfirmDelete(this.indexes);
 
   @override
-  State<StatefulWidget> createState() => _ConfirmDeleteState(this.indexes);
+  State<StatefulWidget> createState() => _ConfirmDeleteState(indexes);
 }
 
 class _ConfirmDeleteState extends State<ConfirmDelete> {
@@ -56,22 +56,22 @@ class _ConfirmDeleteState extends State<ConfirmDelete> {
                         },
                         onLongPress: () {
                           setState(() {
-                            this.longPressed = true;
+                            longPressed = true;
                           });
                         },
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.red)),
                         child: Text(
                           "Yes, delete ${indexes.length} item${indexes.length == 1 ? "" : "s"}\n(${longPressed ? "Press again to confirm" : "Hold button"})",
                           textAlign: TextAlign.center,
                         ),
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.red)),
                       ),
                       ElevatedButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text("Cancel"))
+                          child: const Text("Cancel"))
                     ],
                   )
                 ]),

@@ -56,27 +56,27 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
-          items: [
-            const BottomNavigationBarItem(
+          items: const [
+            BottomNavigationBarItem(
               icon: Icon(CustomIcons.bxs_grid_alt),
               label: 'Prematch',
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(CustomIcons.bxs_bot),
               label: 'Auton',
               backgroundColor: Colors.green,
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(CustomIcons.bxs_joystick),
               label: 'Teleop',
               backgroundColor: Colors.green,
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(CustomIcons.bx_hourglass),
               label: 'Endgame',
               backgroundColor: Colors.green,
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(CustomIcons.attach_file),
               label: 'QR Code',
               backgroundColor: Colors.green,
