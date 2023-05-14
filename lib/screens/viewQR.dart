@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app_2023/database/database.dart';
 import 'package:scouting_app_2023/database/performance.dart';
-import 'package:scouting_app_2023/utils/pretty_qr_code.dart';
+import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:scouting_app_2023/screens/BottomNavBar.dart';
 import 'package:scouting_app_2023/utils/teams.dart';
 import 'dataview.dart';
@@ -53,6 +53,7 @@ class _DisplayQRcodeState extends State<DisplayQRcode> {
               ? PrettyQr(
                   size: MediaQuery.of(context).size.height * 0.6,
                   data: data.toString(),
+                  image: AssetImage('assets/624logo.png'),
                   errorCorrectLevel: QrErrorCorrectLevel.M,
                   roundEdges: true)
               : Image.asset(

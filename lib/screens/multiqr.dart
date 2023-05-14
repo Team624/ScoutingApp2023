@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/pretty_qr_code.dart';
+import 'package:pretty_qr_code/pretty_qr_code.dart';
 
 class MultiQrCode extends StatefulWidget {
   String data;
@@ -55,6 +55,7 @@ class _MultiQrCodeState extends State<MultiQrCode> {
           children: [
             PrettyQr(
               data: dataToScan,
+              image: AssetImage('assets/624logo.png'),
               size: MediaQuery.of(context).size.width * 0.40,
               errorCorrectLevel: QrErrorCorrectLevel.M,
               roundEdges: true,
